@@ -105,7 +105,7 @@ header{
     position: fixed;
     top: -100vh;
     z-index: 50;
-    background-color: #16162d;
+    background-color: #2f2e40;
     border-bottom-right-radius: 100%;
     border-bottom-left-radius: 100%;
     transition: all 650ms cubic-bezier(1,0,0,1);
@@ -132,7 +132,7 @@ li{
 
 .nav-link:hover,
 .nav-link:focus{
-    background:linear-gradient(to top, #ffe838, #fd57bf);
+    background:linear-gradient(to top, #bcc2ff, #bcc2ff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -143,7 +143,7 @@ li{
 }
 
 .menu-toggler{
-    position: absolute;
+    position: fixed;
     top: 5rem;
     right: 5rem;
     width: 5rem;
@@ -220,10 +220,10 @@ li{
     padding: 1rem;
     user-select: none;
 } 
-*/
+*/ /*light blue bcc2ff, treeblue 00baf5, bush drkgry 2f2e40*/
 
 .landing-text h1{
-    color: #bcc2ff;
+    color: #2f2e40;
     font-size: 20rem;
     font-family: 'The Historia Demo', sans-serif;
     padding: 1rem;
@@ -231,7 +231,7 @@ li{
 }
 
 .landing-text h6{
-    color: #9ea2d6;
+    color: #3f3d55;
     font-size: 2rem;
     font-weight: 300;
 }
@@ -319,15 +319,15 @@ li{
 .icon-container {
     width: 10rem;
     height: 10rem;
-    border: 3px solid #ffaaaa;
-    background-color: #ff5151;
+    border: 3px solid #bcc2ff;
+    background-color: #2f2e40;
     margin-bottom: 2rem;
     display: flex;
     transform: rotate(45deg);
 }
 
 .icon-container i{
-    color: #bcc2ff;
+    color: #c6564b;
     font-size: 5rem;
     margin: auto;
     transform: rotate(-45deg);
@@ -371,7 +371,7 @@ li{
     display: inline-block;
     margin-top: 2.5rem;
     font-size: 1.5rem;
-    color: #3882ff;
+    color: #00baf5;
     transition: color 650ms;
 }
 
@@ -383,7 +383,7 @@ li{
 
 /*Start timeline*/
 .timeline ul{
-    border-left: 4px solid #ffe838;
+    border-left: 4px solid #00baf5;
     border-radius: .8rem;
     background-color: rgba(0, 0, 0, 0.05);
     margin: 0 auto;
@@ -440,19 +440,19 @@ li{
 
 .timeline .date::after{
     content: '';
-    box-shadow: 0 0 0 4px #fd57bf;
+    box-shadow: 0 0 0 4px #bcc2ff;
     border-radius: 100%;
     left: -7.9rem;
     height: 1.5rem;
     width: 1.5rem;
-    background-color: #313534;
+    background-color: #2f2e40;
 }
 /*End timeline*/
 
 
 /*Start contact*/
 .contact{
-    background-color: #221e3f;
+    background-color: #2f2e40;
 }
 
 form{
@@ -471,12 +471,13 @@ textarea{
     padding: 1rem;
     margin-bottom: 5px;
     border: none;
-    outline-color: #fd57bf;
+    outline-color: #c6564b;
 }
+
 
 input[type="submit"]{
     width: initial;
-    background-color: #fd57bf;
+    background-color: #c6564b;
     color: #eee;
     padding: 1rem 2rem;
     border-radius: .8rem;
@@ -485,8 +486,8 @@ input[type="submit"]{
 }
 
 input[type="submit"]:hover{
-    color: #221e3f;
-    background-color: #ffe838;
+    color: #2f2e40;
+    background-color: #00baf5;
 }
 /*End contact*/
 
@@ -495,7 +496,7 @@ input[type="submit"]:hover{
 .copyright{
     width: 100%;
     text-align: center;
-    background-color: #16162d;
+    background-color: #3f3d55;
     padding: 2rem 0;
     position: relative;
 }
@@ -514,7 +515,7 @@ input[type="submit"]:hover{
 }
 
 .up i{
-    color: #16162d;
+    color: #2f2e40;
     font-size: 2rem;
     margin: auto;
 }
@@ -528,13 +529,13 @@ input[type="submit"]:hover{
 /*Start animations*/
 @keyframes pulse {
     0%{
-        box-shadow: 0 0 0 0 rgba(253, 87, 191, 0.99);
+        box-shadow: 0 0 0 0 rgba(198, 86, 75, 0.99);
     }
     70%{
-        box-shadow: 0 0 0 2rem rgba(253, 87, 191, 0);
+        box-shadow: 0 0 0 2rem rgba(198, 86, 75, 0);
     }
     100%{
-        box-shadow: 0 0 0 0 rgba(253, 87, 191, 0);
+        box-shadow: 0 0 0 0 rgba(198, 86, 75, 0);
     }
 }
 /*End animations*/
@@ -664,3 +665,9 @@ input[type="submit"]:hover{
     }
 }
 /*End media queries*/
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*~~~~~~~~~~~~~~Color Palette~~~~~~~~~~~~~~*/
+/*~~LB bcc2ff, grayblk 2f2e40, ORG c6564b~~*/
+/*lightgrayblk 2f2e40, tree blue 00baf5*/
