@@ -347,9 +347,11 @@ li{
 .portfolio-item:last-child{
     margin-bottom: 0;
 }
+
 .portfolio-img{
     flex: 1;
 }
+
 
 .portfolio-description{
     flex: 1;
@@ -460,7 +462,7 @@ li{
 
 form{
     width: 70%;
-    margin: 0 auto;
+    margin: 0 auto 50px;
 }
 
 form label{
@@ -472,14 +474,16 @@ select,
 textarea{
     width: 100%;
     padding: 1rem;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     border: none;
     outline-color: #c6564b;
 }
 
 
 input[type="submit"]{
-    width: initial;
+    width: 40%;
+    font-size: 1.5rem;
+    float: right;
     background-color: #c6564b;
     color: #eee;
     padding: 1rem 2rem;

@@ -6,20 +6,20 @@ html{
 
 /*Variables*/
 :root{
-    --background-color: linear-gradient(120deg, #37393b, #2e3032);
-    --light-font-color: #b9bbc2;
+    --background-color: linear-gradient(120deg, #3c627a, #273e4d);
+    --light-font-color: #abbac5;
     --shadow-normal:
-            7px 5px 10px #2b2d2f,
-            -7px -5px 10px #3b3d3f;
+            -7px 5px 10px #263e4e,
+            7px -5px 10px #365468;
     --shadow-inset:
-            inset 7px 5px 10px #2b2d2f,
-            inset -7px -5px 10px #3b3d3f;
+            inset -7px 5px 10px #263e4e,
+            inset 7px -5px 10px #365468;
     --shadow-normal-light:
-            7px 5px 10px rgba(0,0,0,.1),
-            -7px -5px 10px rgba(255, 255, 255, 0.5);
+            7px 5px 10px rgba(38, 41, 43, 0.1),
+            -7px -5px 10px rgba(233, 246, 255, 0.5);
     --shadow-inset-light:
-            inset 7px 5px 10px rgba(0,0,0,.1),
-            inset -7px -5px 10px rgba(255, 255, 255, 0.5);;
+            inset 7px 5px 10px rgba(38, 41, 43, 0.1),
+            inset -7px -5px 10px rgba(233, 246, 255, 0.5);;
 }
 /* Variables end */
 
@@ -32,7 +32,7 @@ a{
 }
 
 a:hover{
-        color: #c92b7d !important;
+        color: #ffaeae !important;
 }
 
 p{
@@ -66,7 +66,7 @@ header{
 }
 
 .nav-brand span{
-        color: #c92b7d;
+        color: #ffaeae;
         font-weight: 400;
         transition: color .50s ease-in;
 }
@@ -132,6 +132,7 @@ a.nav-brand:hover span{
         font-size: 50px;
         margin-top: 50px;
         text-transform: uppercase;
+        letter-spacing: 2px;
 }
 
 img{
@@ -140,9 +141,9 @@ img{
 /* hero end */
 
 
-/* Closer Look */
+/* Overview */
 .light-bg{
-        background-color: #dae1eb;
+        background-color: rgb(204, 225, 239);
 }
 
 .section-heading{
@@ -168,7 +169,7 @@ img{
 }
 
 
-/* closer look end */
+/* overview end */
 
 
 /* Sharp contrast */
