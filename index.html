@@ -1,231 +1,77 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-169269184-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-169269184-1');
-</script>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Maryam</title>
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <link rel="stylesheet" href="main.css">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Maryam's Portfolio</title>
+    <!--Font awesome CDN-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <a name="top"></a>
-    <header>
-        <div class="menu-toggler">
-            <div class="bar half start"></div>
-            <div class="bar"></div>
-            <div class="bar half end"></div>
-        </div>
-        <nav class="top-nav">
-            <ul class="nav-list">
-                <li>
-                    <a href="index.html" class="nav-link">Home</a>
-                </li>
-                <li>
-                    <a href="#about" class="nav-link">About</a>
-                </li>
-                <li>
-                    <a href="#services" class="nav-link">Services</a>
-                </li>
-                <li>
-                    <a href="#portfolio" class="nav-link">Portfolio</a>
-                </li>
-                <li>
-                    <a href="#experience" class="nav-link">Experience</a>
-                </li>
-                <li>
-                    <a href="#contact" class="nav-link">Contact</a>
-                </li>
-            </ul>
+<header class="header">
+    <div class="container">
+        <nav class="nav">
+            <div class="mobile-menu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <h1 class="logo">maryam</h1>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link nav-current">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Resume</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Contact</a>
+                    </li>
+                </ul>  
+            </div>
         </nav>
-        <div class="landing-text">
-            <h1>Maryam</h1>
-            <h6>Web and Game UI | UX | Developer</h6>
-        </div>
-    </header>
-<!--UI | UX Designer and Web Developer-->
-    <section class="about" id="about">
-        <div class="container">
-            <div class="profile-img" data-aos="fade-right" data-aos-delay="300">
-                <img src="../portfolio/images/profile.png" alt="">
-            </div>
-            <div class="about-details" data-aos="fade-left" data-aos-delay="600">
-                <div class="about-heading">
-                    <h1>About</h1>
-                    <h6>Myself</h6>
-                </div>
-                <p>I love to test and retest new ways of doing old things. My favorite color is eggplant (looks best on a car). My favorite food is beef stew. My favorite games have been run into the ground by poor UI and I just want to live in a world where that doesn't happen. </p>
-                <div class="social-media">
-                    <ul class="nav-list">
-                        <li>
-                            <a href="#" class="icon-link">
-                                <i class="fab fa-behance-square"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="icon-link">
-                                <i class="fab fa-dribbble-square"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="icon-link">
-                                <i class="fab fa-github-square"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+    </div>
+</header>
+<header class="test test2"></header>
+<!-- SVG Banner -->
+<section>
+    <img class="svg-img" src="./images/BlockyHeader.svg" alt="#">
+</section>
 
-    <section class="skill" id="skill">
-        <div class="container">
-            <div class="section-heading">
-                <h1>Skills</h1>
-                <h6>What I can do</h6>
+<!-- Skills section -->
+<section class="skill">
+    <div class="container">
+        <div class="my-skills">
+            <div class="programs">
+                <div class="icon-container">
+                    <i class="fas fa-layer-group"></i>
+                </div>
+                <h1>UX/UI Design</h1>
+                <p>I design around a users natural work flow and thought process in order to create systems that elevate what’s already familiar while empowering users to utilize even more.</p>
             </div>
-            <div class="my-skills">
-                <div class="programs" data-aos="fade-in" data-aos-delay="300">
-                    <div class="icon-container">
-                        <i class="fas fa-layer-group"></i>
-                    </div>
-                    <h1>Web Design</h1>
-                    <p>Figma, Adobe XD, Miro, Responsive Design</p>
+            <div class="programs">
+                <div class="icon-container">
+                    <i class="fas fa-code"></i>
                 </div>
-                <div class="programs" data-aos="fade-in" data-aos-delay="600">
-                    <div class="icon-container">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h1>Web Development</h1>
-                    <p>HTML, CSS, Bootstrap, Javascript, React, Github</p>
-                </div>
-                <div class="programs" data-aos="fade-in" data-aos-delay="900">
-                    <div class="icon-container">
-                        <i class="fas fa-paint-brush"></i>
-                    </div>
-                    <h1>Game Design</h1>
-                    <p>Unity, Game UI, Pixel Art, Digital Art (Gimp, Illustrator, Photoshop)</p>
-                </div>
+                <h1>Web Development</h1>
+                <p>Web development has been an interest since the age of nine. I’m able to create using HTML, CSS, and Bootstrap. I’m working on increasing my knowledge with JavaScript and SVG manipulation.</p>
             </div>
-            <div class="chart">
-                <img src="/images/spiderweb.png" alt="" class="spiderweb">
-                <img src="" alt="" class="barchart">
+            <div class="programs">
+                <div class="icon-container">
+                    <i class="fas fa-paint-brush"></i>
+                </div>
+                <h1>Graphic Design</h1>
+                <p>Lately I’ve been creating mockups, icons, or SVGs to use within UX projects. I use a drawing tablet occasionally to make wallpapers, a long term hobby of mine. Further down the line I would like to strengthen my pixel art and game design skills.</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="portfolio" id="portfolio">
-        <div class="container">
-            <div class="section-heading">
-                <h1>Portfolio</h1>
-                <h6>View some of my work</h6>
-            </div>
-            <div class="portfolio-item">
-                <div class="has-margin-right" data-aos="fade-right" data-aos-delay="300">
-                    <img src="../portfolio/images/portitem1.png" alt="iphone splash screen with logo and title" class="mw-25">
-                </div>
-                <div class="portfolio-description" data-aos="fade-left" data-aos-delay="600">
-                    <h6>UX Case Study</h6>
-                    <h1>App - "healthkeeper"</h1>
-                    <p>This box will be the future place of a description for my work on a recent group project I completed. It will contain UX, UI, Figma, Miro, and lots of sticky notes and crumpled papers. Oh what a case study it'll be.</p>
-                    <a href="page1/page1.html" class="cta">View Full Study</a>
-                </div>
-            </div>
-            <div class="portfolio-item">
-                <div class="portfolio-description has-margin-right" data-aos="fade-right" data-aos-delay="900">
-                    <h6>Web Design</h6>
-                    <h1>Product Layout</h1>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id optio officiis libero distinctio magnam error?</p>
-                    <a href="#" class="cta">View Details</a>
-                </div>
-                <div class="portfolio-img" data-aos="fade-left" data-aos-delay="1200">
-                    <img src="../portfolio/images/portitem2.jpeg" alt="">
-                </div>
-            </div>
-            <div class="portfolio-item">
-                <div class="portfolio-img has-margin-right" data-aos="fade-right" data-aos-delay="1500">
-                    <img src="../portfolio/images/portitem3.jpeg" alt="">
-                </div>
-                <div class="portfolio-description" data-aos="fade-left" data-aos-delay="1800">
-                    <h6>Web Design</h6>
-                    <h1>Product Sketch</h1>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id optio officiis libero distinctio magnam error?</p>
-                    <a href="#" class="cta">View Details</a>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section class="experience" id="experience">
-        <div class="container">
-            <div class="section-heading">
-                <h1>Work Experience</h1>
-                <h6>I am currently open to opportunities</h6>
-            </div>
-            <div class="timeline" data-aos="fade-down" data-aos-delay="300">
-                <ul>
-                    <li class="date" data-date="2019 - 2020">
-                        <h1>Integreon</h1>
-                        <h2>Title</h2>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea aperiam, voluptatem perferendis iure neque corporis!</p>
-                    </li>
-                    <li class="date" data-date="2019 - 2019">
-                        <h1>Apple</h1>
-                        <h2>Title</h2>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea aperiam, voluptatem perferendis iure neque corporis!</p>
-                    </li>
-                    <li class="date" data-date="2018 - 2019">
-                        <h1>Cox Automotive</h1>
-                        <h2>Title</h2>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea aperiam, voluptatem perferendis iure neque corporis!</p>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="section-heading">
-                <h1>Contact</h1>
-                <h6>Let's work together</h6>
-            </div>
-            <form action="" data-aos="fade-up" data-aos-delay="300">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" placeholder="Enter your name..." required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email..." required>
-                <label for="service">Services:</label>
-                <select name="services" id="service">
-                    <option value="">Game UI</option>
-                    <option value="">UX/UI Design</option>
-                    <option value="">UI Development</option>
-                </select>
-                <label for="subject">Subject:</label>
-                <textarea name="subject" id="subject" cols="10" rows="10"></textarea>
-                <input type="submit" value="Submit">
-            </form>
-        </div>
-    </section>
-    <footer class="copyright">
-        <a href="#top">
-            <div class="up" id="up">
-                <i class="fas fa-chevron-up"></i>
-            </div>
-        </a>
-        <p>&copy; 2020 Maryam</p>
-    </footer>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="main.js"></script>
+<script src="main.js"></script>
 </body>
 </html>
