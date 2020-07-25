@@ -1,0 +1,103 @@
+/*Import fonts used*/
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400&family=Nanum+Myeongjo:wght@400;700&family=Niconne&family=Noto+Sans+JP:wght@100;300;400;500;700&family=Raleway:wght@300;400;500&family=Zeyada&display=swap');
+/* @import url('https://fonts.googleapis.com/css?family=Courgette|Open+Sans:400,800&display=swap'); */
+/*Basic reset*/
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global Styles */
+html{
+    font-size: 10px; 
+    /* makes math easier when working with rem units */
+}
+
+body{
+    font-family: 'Noto Sans JP','Open Sans', sans-serif;
+    font-size: 1.6rem;
+    color: var(--dark-color);
+}
+
+a{
+    text-decoration: none;
+    color: inherit; 
+    /* (takes color from above defined) */
+}
+
+ul{
+    list-style: none;
+}
+
+section{
+    padding: 5rem 0;
+}
+
+/* Reusable Styles */
+.container{
+    width: 100%;
+    max-width: 120rem;
+    padding: 0 1.5rem;
+    margin: 0 auto;
+}
+
+h1{
+    font-family: "Kalam", sans-serif;
+}
+
+p{
+    font-family: 'Nanum Myeongjo', serif;
+}
+
+/* Header Styles */
+.header{
+    width: 100%;
+    height: 6rem;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #f7fcfd;
+    z-index: 999;
+}
+
+.logo{
+    font-family: 'Zeyada', cursive;
+    color: #38A2B9;
+    font-size: 3rem;
+    padding: 0 1rem;
+    text-transform: lowercase;
+    cursor: pointer;
+}
+
+.nav-list{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-current{
+    color: #38A2B9;
+    text-decoration: underline;
+    cursor: default !important;
+}
+
+.nav-link{
+    font-family: "Kalam", sans-serif;
+    font-size: 1.5rem;
+    font-weight: lighter;
+    text-transform: lowercase;
+    letter-spacing: 2px;
+    padding: .5rem;
+    cursor: pointer;
+}
+
+/* SVG Banner */
+.svg-img{
+    width: 100%;
+    display: inline-block;
+}
