@@ -113,6 +113,47 @@ p{
     display: inline-block;
 }
 
+/*Skills*/
+
+.my-skills{
+    display: grid;
+    grid-gap: 2.5rem;
+	text-align: center;
+	margin-top: -5rem;
+}
+
+.programs{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.programs h1{
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 2rem -2px 2rem 0;
+}
+
+.icon-container {
+    width: 10rem;
+    height: 10rem;
+    border: 3px solid #310055;
+    border-radius: 15%;
+    background-color: #83649C;
+    margin-bottom: 2rem;
+    display: flex;
+    transform: rotate(45deg);
+}
+
+.icon-container i{
+    color: #fff;
+    font-size: 5rem;
+    margin: auto;
+    transform: rotate(-45deg);
+}
+
 /* Case Study Cards - GENERAL https://codepen.io/FlorinPop17/pen/EJKgKB*/
 .case-cards{ 
     display: flex;
@@ -229,45 +270,6 @@ button.primary {
     cursor: pointer
 }
 
-/*Skills*/
-
-.my-skills{
-    display: grid;
-    grid-gap: 2.5rem;
-    text-align: center;
-}
-
-.programs{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-}
-
-.programs h1{
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin: 2rem -2px 2rem 0;
-}
-
-.icon-container {
-    width: 10rem;
-    height: 10rem;
-    border: 3px solid #310055;
-    border-radius: 15%;
-    background-color: #83649C;
-    margin-bottom: 2rem;
-    display: flex;
-    transform: rotate(45deg);
-}
-
-.icon-container i{
-    color: #fff;
-    font-size: 5rem;
-    margin: auto;
-    transform: rotate(-45deg);
-}
 
 /* Divider from https://codepen.io/c4rin3/pen/wLald */
 .wrap { margin: 0 auto; max-width:960px; height:100%; padding:50px 0px;}
