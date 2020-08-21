@@ -49,45 +49,46 @@ section{
 
 .section-heading{
     text-align: center;
-    margin-bottom: 10rem;
+    margin-bottom: 2rem;
 }
 
 .section-heading h1{
     font-size: 3.5rem;
-    color: rgba(0, 0, 0, 0.3);
+    color: rgba(0, 0, 0, 0.50);
     text-transform: uppercase;
     font-weight: 300;
     position: relative;
-    margin-bottom: 1rem;
+    margin-bottom: -1rem;
 }
 
 .section-heading h1::before,
 .section-heading h1::after{
-    content: '';
-    position: absolute;
-    bottom: -.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgba(0, 0, 0, 0.75);
+    /* content: ''; */
+    /* position: absolute; */
+    /* bottom: -.5rem; */
+    /* left: 50%; */
+    /* transform: translateX(-50%); */
+    /* background-color: rgba(0, 0, 0, 0.75); */
 }
 
-.section-heading h1::before{
+/* .section-heading h1::before{
     width: 10rem;
     height: 3px;
     border-radius: .8rem;
-}
+} */
 
-.section-heading h1::after{
+/* .section-heading h1::after{
     width: 1.5rem;
     height: 1.5rem;
     border-radius: 100%;
     bottom: -1rem;
-}
+} */
 
-.section-heading h6{
+/* .section-heading h6{
     font-size: 1.6rem;
     font-weight: 300;
-}
+} */
+
 /* Reusable Styles */
 .container{
     width: 100%;
@@ -111,8 +112,6 @@ p{
     display: flex;
     align-items: center;
     position: fixed;
-    top: 0;
-    left: 0;
     background-color: #FBF8FF;
     z-index: 999;
 }
@@ -461,8 +460,8 @@ input[type="submit"]:hover{
 /*End footer*/
 
 /* Divider from https://codepen.io/c4rin3/pen/wLald */
-.wrap { margin: 0 auto; max-width:960px; height:100%; padding:50px 0px;}
-.separator{ position: relative; display: inline-block; margin:0 auto; width:960px; height:2.5em; padding:1em 0; }
+.wrap { margin: 0 auto; max-width:960px; height:100%; padding:0px 0px 20px 0px;}
+.separator{ position: relative; display: inline-block; margin:0 auto; width:960px; height:2.5em;}
 .separator:after { position:absolute; content:''; display:block; width:2px; height:2px; }
 /* ----- 960px ----- */
 .separator:after {
