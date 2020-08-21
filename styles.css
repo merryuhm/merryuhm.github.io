@@ -148,8 +148,43 @@ p{
 }
 
 /* SVG Banner */
+.svg-banner{
+	background-color: #3F3D56;
+	height: 60vh;
+}
+
+.svg-banner.h1{
+	font: #fff;
+}
+
+.svg-banner.p{
+	font: #fff;
+}
+
 .svg-img{
-    width: 100%;
+	width: 100%;
+}
+
+.social{
+	display: center;
+
+}
+
+.social-sq{
+	width: 55px;
+    height: 55px;
+    border: 2px solid #83649C;
+    border-radius: 15%;
+    background-color: #3F3D56;
+    margin-bottom: 2rem;
+    display: flex;
+}
+
+.social-sq.i{
+	color: #fff;
+    font-size: 5rem;
+    margin: auto;
+    transform: rotate(-45deg);
 }
 
 /*Skills*/
@@ -158,7 +193,7 @@ p{
     display: grid;
     grid-gap: 2.5rem;
 	text-align: center;
-	margin-top: -5rem;
+	margin: 2rem 0rem 5rem;
 }
 
 .knowledge{
@@ -166,7 +201,7 @@ p{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 2rem;
+	padding: 1rem;
 }
 
 .knowledge h1{
