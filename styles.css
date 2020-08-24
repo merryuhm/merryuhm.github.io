@@ -134,7 +134,7 @@ p{
 /* SVG Banner */
 .svg-banner{
 	background-color: #3F3D56;
-	height: 60vh;
+	height: 62vh;
 }
 
 .svg-img{
@@ -154,11 +154,20 @@ p{
 	font-family: 'Zeyada', cursive;
 	color: #fff;
 	font-size: 5rem;
+	margin-top: -2rem;
 }
 
 .landing p{
 	color: #fff;
 	font-size: 2rem;
+	margin-top: -1rem;
+}
+
+.social{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+    align-items: center;
 }
 
 .social-sq{
@@ -168,7 +177,7 @@ p{
     border-radius: 15%;
     background-color: #3F3D56;
     margin: 1rem 1.5rem 2rem;
-	display: inline-block;
+	display: flex;
 }
 
 .social-sq i{
@@ -197,8 +206,6 @@ p{
 }
 
 .knowledge h1{
-    text-transform: uppercase;
-    letter-spacing: 2px;
     margin: 2rem -2px 2rem 0;
 }
 
@@ -208,7 +215,7 @@ p{
     border: 3px solid #310055;
     border-radius: 15%;
     background-color: #83649C;
-    margin-bottom: 2rem;
+    margin: 2rem 0rem 1.25rem;
     display: flex;
     transform: rotate(45deg);
 }
