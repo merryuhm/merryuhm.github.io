@@ -1,6 +1,5 @@
 /*Import fonts used*/
-@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400&family=Nanum+Myeongjo:wght@400;700&family=Niconne&family=Noto+Sans+JP:wght@100;300;400;500;700&family=Raleway:wght@300;400;500&family=Zeyada&display=swap');
-/* @import url('https://fonts.googleapis.com/css?family=Courgette|Open+Sans:400,800&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@400;500;600;700;800&family=Cairo:wght@200;300;400;600;700;900&family=Kalam:wght@300;400;700&family=Niconne&family=Raleway:wght@400;500;600&family=Zeyada&display=swap');
 /*Basic reset*/
 *,
 *::before,
@@ -28,7 +27,7 @@ html{
 }
 
 body{
-    font-family: 'Noto Sans JP','Open Sans', sans-serif;
+    font-family: 'Baloo Tamma 2','Cairo', sans-serif;
     font-size: 1.6rem;
     color: var(--dark-color);
 }
@@ -53,10 +52,10 @@ section{
 }
 
 .section-heading h1{
-    font-size: 3.5rem;
-    color: rgba(0, 0, 0, 0.50);
-    text-transform: uppercase;
-    font-weight: 300;
+    font-size: 4rem;
+    color: rgba(0, 0, 0, 0.75);
+	font-weight: 300;
+	letter-spacing: 4px;
     position: relative;
     margin-bottom: -1rem;
 }
@@ -71,23 +70,7 @@ section{
     /* background-color: rgba(0, 0, 0, 0.75); */
 }
 
-/* .section-heading h1::before{
-    width: 10rem;
-    height: 3px;
-    border-radius: .8rem;
-} */
 
-/* .section-heading h1::after{
-    width: 1.5rem;
-    height: 1.5rem;
-    border-radius: 100%;
-    bottom: -1rem;
-} */
-
-/* .section-heading h6{
-    font-size: 1.6rem;
-    font-weight: 300;
-} */
 
 /* Reusable Styles */
 .container{
@@ -101,8 +84,12 @@ h1{
     font-family: "Kalam", sans-serif;
 }
 
+h2{
+	font-family: "Cairo", sans-serif;
+}
+
 p{
-    font-family: 'Nanum Myeongjo', serif;
+    font-family: 'Baloo Tamma 2', cursive;
 }
 
 /* Header Styles */
@@ -138,11 +125,8 @@ p{
 }
 
 .nav-link{
-    font-family: "Kalam", sans-serif;
-    font-size: 1.5rem;
-    font-weight: lighter;
+    font-family: "Baloo Tamma 2", cursive;
     text-transform: lowercase;
-    letter-spacing: 2px;
     padding: .5rem;
     cursor: pointer;
 }
@@ -153,21 +137,28 @@ p{
 	height: 60vh;
 }
 
-.svg-banner.h1{
-	font: #fff;
-}
-
-.svg-banner.p{
-	font: #fff;
-}
-
 .svg-img{
 	width: 100%;
 }
 
-.social{
-	display: center;
+/* .social{
+	display: table;
 
+} */
+
+.landing{
+	text-align: center;
+}
+
+.landing h1{
+	font-family: 'Zeyada', cursive;
+	color: #fff;
+	font-size: 5rem;
+}
+
+.landing p{
+	color: #fff;
+	font-size: 2rem;
 }
 
 .social-sq{
@@ -176,16 +167,17 @@ p{
     border: 2px solid #83649C;
     border-radius: 15%;
     background-color: #3F3D56;
-    margin-bottom: 2rem;
-    display: flex;
+    margin: 1rem 1.5rem 2rem;
+	display: inline-block;
 }
 
-.social-sq.i{
+.social-sq i{
 	color: #fff;
-    font-size: 5rem;
+    font-size: 3rem;
     margin: auto;
-    transform: rotate(-45deg);
 }
+
+
 
 /*Skills*/
 
