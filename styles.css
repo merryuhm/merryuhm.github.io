@@ -8,17 +8,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-/*Custom properties*/
-/* :root {
-    --dark-color: #2d2c2c;
-    --purple-solid: #350a4f;
-    --purple-transparent: rgba(53, 10, 79, .7);
-    --purple-transparent-alt: rgba(53, 10, 79, .5);
-    --purple-light: #8f50fb;
-    --yellow-solid: #fa9e2c;
-    --gradient-color: linear-gradient(to right, var(--yellow-solid), var(--purple-light));
-    --gradient-color-alt: linear-gradient(to right, var(--purple-light), var(--yellow-solid));
-} */
 
 /* Global Styles */
 html{
@@ -29,7 +18,6 @@ html{
 body{
     font-family: 'Baloo Tamma 2','Cairo', sans-serif;
     font-size: 1.6rem;
-    color: var(--dark-color);
 }
 
 a{
@@ -59,18 +47,6 @@ section{
     position: relative;
     margin-bottom: -1rem;
 }
-
-.section-heading h1::before,
-.section-heading h1::after{
-    /* content: ''; */
-    /* position: absolute; */
-    /* bottom: -.5rem; */
-    /* left: 50%; */
-    /* transform: translateX(-50%); */
-    /* background-color: rgba(0, 0, 0, 0.75); */
-}
-
-
 
 /* Reusable Styles */
 .container{
@@ -214,6 +190,8 @@ p{
 }
 
 .knowledge h1{
+	font-family: 'Cairo', sans-serif;
+	font-weight: 600;
     margin: 2rem -2px 2rem 0;
 }
 
@@ -249,7 +227,7 @@ p{
 	text-align: center;
 }
 
-.card-container {
+.portfolio-item {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -275,18 +253,6 @@ p{
     margin: 5px 0;
 }
 
-
-
-/* .icon-container {
-    width: 10rem;
-    height: 10rem;
-    border: 3px solid #310055;
-    border-radius: 15%;
-    background-color: #83649C;
-    margin: 2rem 0rem 1.25rem;
-    display: flex;
-	transform: rotate(45deg);
-	 */
 .buttons{
     margin: 15px 0px 0px;
 }
@@ -529,29 +495,15 @@ footer{
 
 /*Start media queries */
 @media screen and (max-width: 28em) {
-
+/* 
 	.svg-desktop{
 		display: inline;
 	}
-	
-    .landing-text h6{
-        font-size: 1.7rem;
-    }
+	 */
+
 
     li{
         margin: 2rem 0;
-    }
-
-    .nav-link{
-        font-size: 4.5rem;
-    }
-
-    .about-heading h1{
-        font-size: 8rem;
-    }
-
-    .section-heading h1{
-        font-size: 3rem;
     }
 
     .icon-container{
@@ -589,28 +541,6 @@ footer{
     .nav-link{
         font-size: 3.5rem;
     } */
-
-    .about .container{
-        flex-direction: column;
-    }
-    
-    .profile-img{
-        margin: 0 0 7rem 0;
-    }
-
-    .portfolio-item{
-        flex-direction: column;
-    }
-
-    .portfolio-img{
-        margin: 0 0 2rem 0;
-        order: 1;
-    }
-    
-    .portfolio-description{
-        margin: 0;
-        order: 2;
-    }
 
     .timeline p{
         font-size: 1.6rem;
