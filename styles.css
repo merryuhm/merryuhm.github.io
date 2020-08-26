@@ -134,17 +134,24 @@ p{
 /* SVG Banner */
 .svg-banner{
 	background-color: #3F3D56;
-	height: 80vh;
+	height: 85vh;
+	float: initial;
+	margin-bottom: -1rem;
 }
 
 .svg-img{
 	width: 100%;
+	float: left;
+	margin-top: 3rem;
 }
 
-/* .social{
-	display: table;
+.svg-mobile{
+	height: 50vh;
+}
 
-} */
+.svg-desktop{
+	display: none;
+}
 
 .landing{
 	text-align: center;
@@ -191,10 +198,11 @@ p{
 /*Skills*/
 
 .my-skills{
-    display: grid;
-    grid-gap: 2.5rem;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-gap: 3rem;
 	text-align: center;
-	margin: 2rem 0rem 5rem;
+	margin: 2rem 0rem 0rem;
 }
 
 .knowledge{
@@ -229,13 +237,28 @@ p{
 
 
 /* Case Study Cards - GENERAL https://codepen.io/FlorinPop17/pen/EJKgKB*/
-.case-cards{ 
+.portfolio{ 
 	background-color: #937ba7;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    margin-top: -7rem;
+	margin-top: -2rem;
+}
+
+.case-cards{
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-gap: 3rem;
+	text-align: center;
+}
+
+.card-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-radius: 5px;
+	box-shadow: 0px 10px 20px -10px rgba(0,0,0,0.75);
+	padding-top: 30px;
+	width: 350px;
+	max-width: 100%;
 }
 
 .case-cards h6 {
@@ -252,24 +275,25 @@ p{
     margin: 5px 0;
 }
 
-.card-container {
-    margin: 1.5rem 0rem 1.5rem;
-	border-radius: 5px;
-	box-shadow: 0px 10px 20px -10px rgba(0,0,0,0.75);
-	padding-top: 30px;
-	position: relative;
-	width: 350px;
-	max-width: 100%;
-	text-align: center;
-}
 
+
+/* .icon-container {
+    width: 10rem;
+    height: 10rem;
+    border: 3px solid #310055;
+    border-radius: 15%;
+    background-color: #83649C;
+    margin: 2rem 0rem 1.25rem;
+    display: flex;
+	transform: rotate(45deg);
+	 */
 .buttons{
     margin: 15px 0px 0px;
 }
 
 .skill-tags {
     background-color: #f0f0f0;
-    color: #333;
+    color: rgba(0, 0, 0, 0.65);
 	text-align: left;
 	padding: 1.25rem;
 	margin-top: 20px;
@@ -283,7 +307,7 @@ p{
 }
 
 .skill-tags ul li {
-	border: 1px solid #2D2747;
+	border: 1px solid rgba(0, 0, 0, 0.25);
 	border-radius: 2px;
 	display: inline-block;
 	font-size: 12px;
@@ -501,6 +525,110 @@ footer{
     font-size: 1.4rem;
 }
 /*End footer*/
+
+
+/*Start media queries */
+@media screen and (max-width: 28em) {
+
+	.svg-desktop{
+		display: inline;
+	}
+	
+    .landing-text h6{
+        font-size: 1.7rem;
+    }
+
+    li{
+        margin: 2rem 0;
+    }
+
+    .nav-link{
+        font-size: 4.5rem;
+    }
+
+    .about-heading h1{
+        font-size: 8rem;
+    }
+
+    .section-heading h1{
+        font-size: 3rem;
+    }
+
+    .icon-container{
+        width: 7rem;
+        height: 7rem;
+    }
+
+    .icon-container i{
+        font-size: 4rem;
+    }
+
+    .timeline ul{
+        margin: 0 0 0 auto;
+    }
+
+    .timeline .date:before{
+        left: -20rem;
+    }
+
+    .timeline .date:after{
+        left: -5.9rem;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+
+    /* .landing-text h1{
+        font-size: 8rem;
+    }
+    
+    .landing-text h6{
+        font-size: 1.4rem;
+    }
+
+    .nav-link{
+        font-size: 3.5rem;
+    } */
+
+    .about .container{
+        flex-direction: column;
+    }
+    
+    .profile-img{
+        margin: 0 0 7rem 0;
+    }
+
+    .portfolio-item{
+        flex-direction: column;
+    }
+
+    .portfolio-img{
+        margin: 0 0 2rem 0;
+        order: 1;
+    }
+    
+    .portfolio-description{
+        margin: 0;
+        order: 2;
+    }
+
+    .timeline p{
+        font-size: 1.6rem;
+    }
+
+    .timeline .date::before{
+        font-size: 1.4rem;
+    }
+
+    form{
+        width: 80%;
+    }
+
+    .up{
+        right: 2rem;
+    }
+}
+/*End media queries*/
 
 /* Divider from https://codepen.io/c4rin3/pen/wLald */
 .wrap { margin: 0 auto; max-width:960px; height:100%; padding:0px 0px 20px 0px;}
