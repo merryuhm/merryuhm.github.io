@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Maryam's Portfolio</title>
     <!--Font awesome CDN-->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -188,7 +189,7 @@
                 <div class="separator"></div>
             </section>
         </div>
-        <div class="timeline" data-aos="fade-down" data-aos-delay="300">
+        <div class="timeline">
             <ul>
                 <li class="date" data-date="2019 - 2020">
                     <h1>Integreon</h1>
@@ -220,7 +221,7 @@
                 <div class="separator"></div>
             </section>
         </div>
-        <form action="mailto:maryamnrqz@gmail.com" method="POST" enctype="multipart/form-data" data-aos="fade-up" data-aos-delay="300">
+        <form method="post" name="contact_form" action="contact-form-handler.php">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" placeholder="Enter your name..." required>
             <label for="email">Email:</label>
@@ -249,6 +250,8 @@
     <p>Death Row Records &copy; 2020</p>
 </footer>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script src="main.js"></script>
 </body>
 </html>

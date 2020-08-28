@@ -125,7 +125,7 @@ p{
 	height: 50vh;
 }
 
-.svg-desktop{
+.svg-mobile{
 	display: none;
 }
 
@@ -220,11 +220,29 @@ p{
 	margin-top: -2rem;
 }
 
+
+
 .case-cards{
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
     grid-gap: 3rem;
 	text-align: center;
+	margin: 2rem 0rem 0rem;
+}
+
+.portfolio-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+	margin: 0 3rem;
+}
+/* .case-cards{
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+	padding: 2rem;
 }
 
 .portfolio-item {
@@ -237,9 +255,14 @@ p{
 	padding-top: 30px;
 	width: 350px;
 	max-width: 100%;
+} */
+
+.portfolio-item h3 {
+	font-size: 2.25rem;
+	padding: 2rem 0 1rem;
 }
 
-.case-cards h6 {
+.portfolio-item h6 {
     font-family: 'Noto Sans JP', sans-serif;
     font-weight: 400;
 	margin: 5px 0;
@@ -289,7 +312,6 @@ p{
 
 .case1 h3 {
     font-family: "Raleway", sans-serif;
-	margin: 10px 0;
 }
 
 button.primary.ghost {
@@ -310,14 +332,12 @@ button.primary {
 /* Case Card 2 */
 .case2 {
     color: #675772;
-    background-image: url();
-    background-color: #FAF6F2;
+	background-color: #FAF6F2;
 }
 
 .case2 h3 {
-    font-family: "Niconne", cursive;
-    margin: 10px 0;
-    font-size: 24px;
+	font-family: "Niconne", cursive;
+	font-size: 3rem;
 }
 
 .case2 button.primary.ghost {
@@ -495,12 +515,13 @@ footer{
 
 /*Start media queries */
 @media screen and (max-width: 28em) {
-/* 
-	.svg-desktop{
+	.svg-mobile{
 		display: inline;
 	}
-	 */
-
+	
+	.svg-desktop{
+		display: none;
+	}
 
     li{
         margin: 2rem 0;
