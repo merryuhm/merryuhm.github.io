@@ -1,5 +1,5 @@
-/*Import fonts used*/
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@400;500;600;700;800&family=Cairo:wght@200;300;400;600;700;900&family=Kalam:wght@300;400;700&family=Niconne&family=Raleway:wght@400;500;600&family=Zeyada&display=swap');
+
 /*Basic reset*/
 *,
 *::before,
@@ -26,12 +26,31 @@ a{
     /* (takes color from above defined) */
 }
 
+h1{
+    font-family: "Kalam", sans-serif;
+}
+
+h2{
+	font-family: "Cairo", sans-serif;
+}
+
+p{
+    font-family: 'Baloo Tamma 2', cursive;
+}
+
 ul{
     list-style: none;
 }
 
+.container{
+    width: 100%;
+    max-width: 120rem;
+    padding: 0 1.5rem;
+    margin: 0 auto;
+}
+
 section{
-    padding: 5rem 0;
+    padding: 5rem 0 10rem;
 }
 
 .section-heading{
@@ -48,26 +67,7 @@ section{
     margin-bottom: -1rem;
 }
 
-/* Reusable Styles */
-.container{
-    width: 100%;
-    max-width: 120rem;
-    padding: 0 1.5rem;
-    margin: 0 auto;
-}
-
-h1{
-    font-family: "Kalam", sans-serif;
-}
-
-h2{
-	font-family: "Cairo", sans-serif;
-}
-
-p{
-    font-family: 'Baloo Tamma 2', cursive;
-}
-
+/* Default size / 1440 / 960 */
 /* Header Styles */
 .header{
     width: 100%;
@@ -107,22 +107,14 @@ p{
     cursor: pointer;
 }
 
+
 /* SVG Banner */
-.svg-banner{
-	background-color: #3F3D56;
-	height: 85vh;
-	float: initial;
-	margin-bottom: -1rem;
-}
+
 
 .svg-img{
 	width: 100%;
-	float: left;
+	float: inline-start;
 	margin-top: 3rem;
-}
-
-.svg-mobile{
-	height: 50vh;
 }
 
 .svg-mobile{
@@ -130,20 +122,7 @@ p{
 }
 
 .landing{
-	text-align: center;
-}
-
-.landing h1{
-	font-family: 'Zeyada', cursive;
-	color: #fff;
-	font-size: 5rem;
-	margin-top: -2rem;
-}
-
-.landing p{
-	color: #fff;
-	font-size: 2rem;
-	margin-top: -1rem;
+	display: none;
 }
 
 .social{
@@ -154,29 +133,28 @@ p{
 }
 
 .social-sq{
-	width: 55px;
-    height: 55px;
-    border: 2px solid #83649C;
+	width: 4rem;
+    height: 4rem;
+    border: 2.5px solid #83649C;
     border-radius: 15%;
-    background-color: #3F3D56;
-    margin: 1rem 1.5rem 2rem;
+    background-color: #FBF8FF;
+    margin: 0 1.5rem;
 	display: flex;
+	justify-content: flex-end;
 }
 
 .social-sq i{
-	color: #fff;
-    font-size: 3rem;
+	color: #3F3D56;
+    font-size: 2.25rem;
     margin: auto;
 }
 
-
-
 /*Skills*/
-
+/* top align*****!*!*!*!*!*!*!*!*!*!*!*!*!!!! for paragraph heights to even out */
 .my-skills{
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-    grid-gap: 3rem;
+	grid-gap: 3rem;
 	text-align: center;
 	margin: 2rem 0rem 0rem;
 }
@@ -185,7 +163,7 @@ p{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+	align-items: center;
 	padding: 1rem;
 }
 
@@ -203,7 +181,7 @@ p{
     background-color: #83649C;
     margin: 2rem 0rem 1.25rem;
     display: flex;
-    transform: rotate(45deg);
+	transform: rotate(45deg);
 }
 
 .icon-container i{
@@ -220,14 +198,10 @@ p{
 	margin-top: -2rem;
 }
 
-
-
 .case-cards{
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-    grid-gap: 3rem;
-	text-align: center;
-	margin: 2rem 0rem 0rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .portfolio-item{
@@ -236,26 +210,8 @@ p{
     justify-content: center;
     align-items: center;
 	margin: 0 3rem;
+	max-width: 350px;
 }
-/* .case-cards{
-	display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-	padding: 2rem;
-}
-
-.portfolio-item {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	border-radius: 5px;
-	box-shadow: 0px 10px 20px -10px rgba(0,0,0,0.75);
-	padding-top: 30px;
-	width: 350px;
-	max-width: 100%;
-} */
 
 .portfolio-item h3 {
 	font-size: 2.25rem;
@@ -281,7 +237,7 @@ p{
 }
 
 .skill-tags {
-    background-color: #f0f0f0;
+    background-color: #ffffff;
     color: rgba(0, 0, 0, 0.65);
 	text-align: left;
 	padding: 1.25rem;
@@ -331,8 +287,8 @@ button.primary {
 
 /* Case Card 2 */
 .case2 {
-    color: #675772;
-	background-color: #FAF6F2;
+    color: #664b39;
+	background-color: #fde1c5;
 }
 
 .case2 h3 {
@@ -347,8 +303,8 @@ button.primary {
 }
 
 .case2 button.primary {
-	background-color: #675772;
-	border: 1px solid #675772;
+	background-color: #664b39;
+	border: 1px solid #664b39;
 	border-radius: 3px;
 	color: #FAF6F2;
     padding: 10px 25px;
@@ -512,14 +468,86 @@ footer{
 }
 /*End footer*/
 
-
+/* 768 420 300 */
 /*Start media queries */
-@media screen and (max-width: 28em) {
+@media screen and (max-width: 768px) {
+
+    .timeline p{
+        font-size: 1.6rem;
+    }
+
+    .timeline .date::before{
+        font-size: 1.4rem;
+    }
+
+    form{
+        width: 80%;
+    }
+
+    .up{
+        right: 2rem;
+    }
+}
+
+@media screen and (max-width: 420px) {
+	
+	.svg-banner{
+		background-color: #3F3D56;
+		height: 85vh;
+		float: initial;
+		margin-bottom: -1rem;
+	}
+
 	.svg-mobile{
 		display: inline;
+		margin-top: 6rem;
+	}
+	
+	.landing{
+		display: inline;
+		text-align: center;
+	}
+	
+	.landing h1{
+		font-family: 'Zeyada', cursive;
+		color: #fff;
+		font-size: 5rem;
+		margin-top: -2rem;
+	}
+	
+	.landing p{
+		color: #fff;
+		font-size: 2rem;
+	}
+	
+	.social{
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+	}
+	
+	.social-sq{
+		width: 55px;
+		height: 55px;
+		border: 2px solid #83649C;
+		border-radius: 15%;
+		background-color: #3F3D56;
+		margin: 1rem 1.5rem 2rem;
+		display: flex;
+	}
+	
+	.social-sq i{
+		color: #fff;
+		font-size: 3rem;
+		margin: auto;
 	}
 	
 	.svg-desktop{
+		display: none;
+	}
+
+	.header-contact{
 		display: none;
 	}
 
@@ -549,36 +577,6 @@ footer{
     }
 }
 
-@media screen and (max-width: 1440px) {
-
-    /* .landing-text h1{
-        font-size: 8rem;
-    }
-    
-    .landing-text h6{
-        font-size: 1.4rem;
-    }
-
-    .nav-link{
-        font-size: 3.5rem;
-    } */
-
-    .timeline p{
-        font-size: 1.6rem;
-    }
-
-    .timeline .date::before{
-        font-size: 1.4rem;
-    }
-
-    form{
-        width: 80%;
-    }
-
-    .up{
-        right: 2rem;
-    }
-}
 /*End media queries*/
 
 /* Divider from https://codepen.io/c4rin3/pen/wLald */
