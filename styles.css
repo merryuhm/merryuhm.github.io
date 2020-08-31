@@ -22,7 +22,8 @@ body{
 
 a{
     text-decoration: none;
-    color: inherit; 
+	color: inherit; 
+	cursor: pointer;
     /* (takes color from above defined) */
 }
 
@@ -88,25 +89,25 @@ section{
     cursor: pointer;
 }
 
+.logo:hover{
+	color: #a78ebd;
+}
 .nav-list{
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.nav-current{
-    color: #83649C;
-    text-decoration: underline;
-    cursor: default !important;
-}
-
 .nav-link{
     font-family: "Baloo Tamma 2", cursive;
     text-transform: lowercase;
     padding: .5rem;
-    cursor: pointer;
 }
 
+.nav-link:hover{
+	color: #83649C;
+	text-decoration: underline;
+}
 
 /* SVG Banner */
 
@@ -149,8 +150,17 @@ section{
     margin: auto;
 }
 
+.social-sq:hover{
+    border: 2.5px solid #3F3D56;
+    background-color: #83649C;
+}
+
+.social-sq i:hover{
+	color: #FBF8FF;
+}
+
+
 /*Skills*/
-/* top align*****!*!*!*!*!*!*!*!*!*!*!*!*!!!! for paragraph heights to even out */
 .my-skills{
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
@@ -162,7 +172,6 @@ section{
 .knowledge{
     display: flex;
     flex-direction: column;
-    justify-content: center;
 	align-items: center;
 	padding: 1rem;
 }
@@ -199,7 +208,9 @@ section{
 }
 
 .case-cards{
-	display: flex;
+	display: grid;
+	grid-template-columns: auto auto auto;
+	grid-gap: 2rem;
 	justify-content: center;
 	align-items: center;
 }
@@ -208,8 +219,7 @@ section{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-	margin: 0 3rem;
+	align-items: center;
 	max-width: 350px;
 }
 
@@ -228,8 +238,8 @@ section{
 .case-cards p {
     font-family: 'Noto Sans JP', sans-serif;
 	font-size: 14px;
-    line-height: 21px;
-    margin: 5px 0;
+	line-height: 21px;
+    margin: 1.25rem 3rem;
 }
 
 .buttons{
@@ -273,7 +283,7 @@ section{
 button.primary.ghost {
 	background-color: transparent;
     color: #D3EAFA;
-    cursor: pointer
+    cursor: pointer;
 }
 
 button.primary {
@@ -282,7 +292,18 @@ button.primary {
 	border-radius: 3px;
 	color: #231E39;
     padding: 10px 25px;
-    cursor: pointer
+    cursor: pointer;
+}
+
+button.primary.ghost:hover {
+	background-color: #325266;
+    color: #D3EAFA;
+}
+
+button.primary:hover {
+	background-color: #b7d4e9;
+	border: 1px solid #b7d4e9;
+	color: #231E39;
 }
 
 /* Case Card 2 */
@@ -294,12 +315,13 @@ button.primary {
 .case2 h3 {
 	font-family: "Niconne", cursive;
 	font-size: 3rem;
+	margin-top: -1rem;
 }
 
 .case2 button.primary.ghost {
 	background-color: transparent;
     color: #675772;
-    cursor: pointer
+    cursor: pointer;
 }
 
 .case2 button.primary {
@@ -308,7 +330,18 @@ button.primary {
 	border-radius: 3px;
 	color: #FAF6F2;
     padding: 10px 25px;
-    cursor: pointer
+    cursor: pointer;
+}
+
+.case2 button.primary.ghost:hover {
+	background-color: #ebd0b5;
+    color: #675772;
+}
+
+.case2 button.primary:hover {
+	background-color: #473021;
+	border: 1px solid #473021;
+	color: #FAF6F2;
 }
 
 /*Start timeline*/
@@ -425,8 +458,7 @@ input[type="submit"]{
 }
 
 input[type="submit"]:hover{
-    color: #2f2e40;
-    background-color: #00baf5;
+    background-color: #a78ebd;
 }
 /*End contact*/
 
@@ -471,6 +503,11 @@ footer{
 /* 768 420 300 */
 /*Start media queries */
 @media screen and (max-width: 768px) {
+
+	.my-skills{
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+	}
 
     .timeline p{
         font-size: 1.6rem;
@@ -562,7 +599,16 @@ footer{
 
     .icon-container i{
         font-size: 4rem;
-    }
+	}
+
+	.case-cards{
+		display: flex;
+		flex-direction: column;
+	}
+
+	.case2{
+		margin: 2rem 0 0;
+	}
 
     .timeline ul{
         margin: 0 0 0 auto;
