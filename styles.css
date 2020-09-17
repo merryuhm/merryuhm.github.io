@@ -347,6 +347,44 @@ button.primary:hover {
 	color: #FAF6F2;
 }
 
+/* Case Card 3 */
+.case3{
+    color: #000;
+	background-image: url(./images/tttile.png);
+	background-repeat: repeat;
+}
+
+.card-logo{
+	margin: 2rem 5rem 1rem 0;
+	width: 75%;
+}
+
+.case3 button.primary.ghost {
+	background-color: transparent;
+    color: #4484c9;
+    cursor: pointer;
+}
+
+.case3 button.primary {
+	background-color: #5AAAFF;
+	border: 1px solid #5AAAFF;
+	border-radius: 3px;
+	color: #254f7c;
+    padding: 10px 25px;
+    cursor: pointer;
+}
+
+.case3 button.primary.ghost:hover {
+	background-color: #a5c8ec;
+    color: #254f7c;
+}
+
+.case3 button.primary:hover {
+	background-color: #4484c9;
+	border: 1px solid #4484c9;
+	color: #a5c8ec;
+}
+
 /*Start timeline*/
 .timeline ul{
     border-left: 4px solid #83649C;
@@ -533,14 +571,14 @@ footer{
 	
 	.svg-banner{
 		background-color: #3F3D56;
-		height: 85vh;
+		height: 80vh;
 		float: initial;
 		margin-bottom: -1rem;
 	}
 
 	.svg-mobile{
 		display: inline;
-		margin-top: 6rem;
+		margin-top: 11rem;
 	}
 	
 	.landing{
