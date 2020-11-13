@@ -568,14 +568,13 @@ footer{
 }
 
 @media screen and (max-width: 420px) {
-	.svg-img{
-		width: 100%;
-		float: inline-start;
-		/* margin-top: 3rem; */
-	}
-
 	.svg-desktop{
 		display: none;
+	}
+
+	.svg-mobile{
+		display: inline;
+		z-index: 10;
 	}
 
 	.svg-banner{
@@ -584,11 +583,6 @@ footer{
 		float: initial;
 		margin-bottom: -1rem;
 		z-index: 5;
-	}
-
-	.svg-mobile{
-		display: inline;
-		z-index: 10;
 	}
 	
 	.landing{
