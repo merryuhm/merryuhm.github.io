@@ -113,7 +113,7 @@ section{
 .svg-img{
 	width: 100%;
 	float: inline-start;
-	margin-top: 3rem;
+	/* margin-top: 3rem; */
 }
 
 .svg-mobile{
@@ -121,7 +121,7 @@ section{
 }
 
 .svg-desktop{
-	margin-top: 5rem;
+	/* margin-top: 5rem; */
 	display: inline;
 }
 
@@ -568,17 +568,27 @@ footer{
 }
 
 @media screen and (max-width: 420px) {
-	
+	.svg-img{
+		width: 100%;
+		float: inline-start;
+		/* margin-top: 3rem; */
+	}
+
+	.svg-desktop{
+		display: none;
+	}
+
 	.svg-banner{
 		background-color: #3F3D56;
-		height: 80vh;
+		height: 70vh;
 		float: initial;
 		margin-bottom: -1rem;
+		z-index: 5;
 	}
 
 	.svg-mobile{
 		display: inline;
-		margin-top: 11rem;
+		z-index: 10;
 	}
 	
 	.landing{
@@ -619,10 +629,6 @@ footer{
 		color: #fff;
 		font-size: 3rem;
 		margin: auto;
-	}
-	
-	.svg-desktop{
-		display: none;
 	}
 
 	.header-contact{
