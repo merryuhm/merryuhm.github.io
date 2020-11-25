@@ -8,7 +8,10 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+/* Debugging*/
+.debug{
+	border: 2px solid red;
+}
 /* Global Styles */
 html{
     font-size: 10px; 
@@ -28,11 +31,19 @@ a{
 }
 
 h1{
-    font-family: "Kalam", sans-serif;
+    font-family: "Cairo", sans-serif;
 }
 
+/* h2{
+	font-family: "Kalam", sans-serif;
+} */
 h2{
-	font-family: "Cairo", sans-serif;
+	font-family: 'Baloo Tamma 2', sans-serif;
+	font-style: italic;
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    opacity: .3;
 }
 
 p{
@@ -75,9 +86,13 @@ section{
     height: 6rem;
     display: flex;
     align-items: center;
-    position: fixed;
-    background-color: #FBF8FF;
+	background-color: #FBF8FF;
     z-index: 999;
+}
+
+.header.active{
+	position: fixed;
+	box-shadow: .50rem 1rem 3rem rgba(100, 100, 100, 0.2);
 }
 
 .logo{
@@ -112,8 +127,6 @@ section{
 /* SVG Banner */
 .svg-img{
 	width: 100%;
-	float: inline-start;
-	/* margin-top: 3rem; */
 }
 
 .svg-mobile{
@@ -121,7 +134,6 @@ section{
 }
 
 .svg-desktop{
-	/* margin-top: 5rem; */
 	display: inline;
 }
 
@@ -162,8 +174,88 @@ section{
 	color: #FBF8FF;
 }
 
+/*About*/
+.about .container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.self h2{
+	padding: 1rem 0rem 0 9rem;
+}
+
+/* 
+.about-heading{
+    text-align: center;
+    text-transform: uppercase;
+    line-height: .2;
+    margin-bottom: 6rem;
+} */
+/* 
+.about-heading h1{
+    font-size: 10rem;
+    opacity: .3;
+}
+
+.about-heading h6{
+    font-size: 2rem;
+    font-weight: 300;
+} */
+
+/* oldcode */
+
+.hexagon {
+    overflow: hidden;
+    visibility: hidden;
+    -webkit-transform: rotate(120deg);
+       -moz-transform: rotate(120deg);
+        -ms-transform: rotate(120deg);
+         -o-transform: rotate(120deg);
+            transform: rotate(120deg);
+    cursor: pointer;
+	}
+	
+.hexagon-in1 {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    -webkit-transform: rotate(-60deg);
+       -moz-transform: rotate(-60deg);
+        -ms-transform: rotate(-60deg);
+         -o-transform: rotate(-60deg);
+            transform: rotate(-60deg);
+	}
+	
+.hexagon-in2 {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-image: url("images/profile.png");
+    visibility: visible;
+    -webkit-transform: rotate(-60deg);
+       -moz-transform: rotate(-60deg);
+        -ms-transform: rotate(-60deg);
+         -o-transform: rotate(-60deg);
+            transform: rotate(-60deg);
+	}
+	
+.hexagon-in2:hover {
+    background-image: url("images/plaguedr.png");
+    }
+
+.hexagon1 {
+    width: 450px;
+    height: 250px;
+    margin: 0 0 0 -80px;
+	}
 
 /*Skills*/
+.skill{
+	/* background-color: #937ba7; */
+}
+
 .my-skills{
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
@@ -177,12 +269,14 @@ section{
     flex-direction: column;
 	align-items: center;
 	padding: 1rem;
+	border: 3px solid #fff;
+	/* background-color: #ba99d6; */
 }
 
 .knowledge h1{
 	font-family: 'Cairo', sans-serif;
 	font-weight: 600;
-    margin: 2rem -2px 2rem 0;
+	margin: 2rem -2px 2rem 0;
 }
 
 .icon-container {
@@ -190,14 +284,15 @@ section{
     height: 10rem;
     border: 3px solid #310055;
     border-radius: 15%;
-    background-color: #83649C;
+    /* background-color: #ba99d6; */
     margin: 2rem 0rem 1.25rem;
     display: flex;
 	transform: rotate(45deg);
 }
 
 .icon-container i{
-    color: #fff;
+	/* color: #fff; */
+	color: #310055;
     font-size: 5rem;
     margin: auto;
     transform: rotate(-45deg);
@@ -206,7 +301,6 @@ section{
 
 /* Case Study Cards - GENERAL https://codepen.io/FlorinPop17/pen/EJKgKB*/
 .portfolio{ 
-	background-color: #937ba7;
 	margin-top: -2rem;
 }
 
@@ -406,14 +500,14 @@ button.primary:hover {
     opacity: .3;
 }
 
-.timeline h2{
+/* .timeline h2{
 	font-family: 'Baloo Tamma 2', sans-serif;
 	font-style: italic;
     font-size: 1.5rem;
     font-weight: 300;
     margin-bottom: 1rem;
     opacity: .3;
-}
+} */
 
 .timeline .date{
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -550,6 +644,14 @@ footer{
 		grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
 	}
 
+	.about-details .nav-list{
+        flex-direction: initial;
+    }
+
+    .about-details li{
+        margin: 0 2rem;
+    }
+
     .timeline p{
         font-size: 1.6rem;
     }
@@ -601,7 +703,7 @@ footer{
 		color: #fff;
 		font-size: 2rem;
 	}
-	
+
 	.social{
 		display: flex;
 		flex-direction: row;
@@ -624,7 +726,14 @@ footer{
 		font-size: 3rem;
 		margin: auto;
 	}
-
+	
+	.about .container{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	
 	.header-contact{
 		display: none;
 	}
