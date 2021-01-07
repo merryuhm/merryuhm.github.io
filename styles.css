@@ -264,6 +264,10 @@ section{
 	margin: 2rem -2px 2rem 0;
 }
 
+.knowledge a{
+	color: #83649C;
+}
+
 .icon-container {
     width: 10rem;
     height: 10rem;
