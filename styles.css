@@ -179,10 +179,6 @@ section{
 }
 
 /*Skills*/
-.skill{
-	background-color: #cdc1d7;
-}
-
 .my-skills{
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
@@ -228,6 +224,22 @@ section{
     font-size: 5rem;
     margin: auto;
     transform: rotate(-45deg);
+}
+
+/* Websites */
+.websites{
+	background-color: #cdc1d7;
+}
+.websiteImage {
+	max-width: 85%;
+}
+
+.scim, .stg{
+margin: 3rem 0 3rem;
+}
+
+.scim{
+	margin-top: 5rem;
 }
 
 /* Portfolio */
