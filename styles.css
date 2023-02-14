@@ -34,6 +34,10 @@ a{
     /* (takes color from above defined) */
 }
 
+a:hover{
+	text-decoration: underline;
+}
+
 h1{
     font-family: "Cairo", sans-serif;
 }
@@ -66,7 +70,7 @@ ul{
 }
 
 section{
-    padding: 5rem 0 10rem;
+    padding: 5rem 0 5rem;
 }
 
 .section-heading{
@@ -124,7 +128,6 @@ section{
 
 .nav-link:hover{
 	color: #83649C;
-	text-decoration: underline;
 }
 
 /* SVG Banner */
@@ -224,6 +227,15 @@ section{
     font-size: 5rem;
     margin: auto;
     transform: rotate(-45deg);
+}
+
+/* Games */
+.games{
+	background-color: #cdc1d7;
+}
+
+.gameImg{
+	max-width: 95%;
 }
 
 /* Websites */
@@ -502,7 +514,7 @@ footer{
 
 	.svg-banner{
 		background-color: #3F3D56;
-		height: 70vh;
+		height: 60vh;
 		z-index: 5;
 	}
 	
@@ -536,7 +548,7 @@ footer{
 		border: 2px solid #83649C;
 		border-radius: 15%;
 		background-color: #3F3D56;
-		margin: 0 1.5rem 2rem;
+		margin: 1rem;
 		display: flex;
 	}
 	
