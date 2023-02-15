@@ -258,24 +258,52 @@ margin: 3rem 0 3rem;
 .portfolio-item{
 	display: flex;
 	align-items: center;
-	justify-content: center;
 	margin-bottom: 5rem;
 	background-color: #9087a1;
 	border-radius: 2rem;
-	height: 60vh;
+	height: 50vh;
 }
 
 .portfolio-item:last-child{
 	margin-bottom: 0;
 }
 
-.portfolio-description{
-	flex: .75;
-	margin: 1.25rem 5rem;
+.portfolio-side{
+	flex: 1;
 }
 
-.portfolio-right{
-	flex: 1.25;
+.portfolio-img{
+	width: 100%;
+	height: 100%;
+	padding: 2rem 6rem 2rem 2rem;
+}
+
+/* skill tags - GENERAL https://codepen.io/FlorinPop17/pen/EJKgKB*/
+.skill-tags {
+	/* flex: 3; */
+	color: #fff;
+	text-align: left;
+	padding-top: 2rem;
+}
+
+.skill-tags ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.skill-tags ul li {
+	border: 2.5px solid rgba(196, 196, 196, 0.7);
+	border-radius: 2px;
+	display: inline-block;
+	font-size: 12px;
+	margin: 0 7px 7px 0;
+	padding: .35rem;
+}
+
+.portfolio-description{
+	flex: 1;
+	margin: 1.25rem 5rem;
 }
 
 .portfolio-description h3 {
@@ -296,11 +324,6 @@ margin: 3rem 0 3rem;
 .portfolio-description p {
 	line-height: 2.5rem;
 	font-size: 1.7rem;
-}
-
-.portfolio-img{
-	width: 75%;
-	padding: 2rem;
 }
 
 .portfolio-description button{
@@ -336,27 +359,7 @@ button.primary:hover {
 	color: #231E39;
 }
 
-/* skill tags - GENERAL https://codepen.io/FlorinPop17/pen/EJKgKB*/
-.skill-tags {
-	color: #fff;
-	text-align: left;
-	padding-left: 2rem;
-}
 
-.skill-tags ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-}
-
-.skill-tags ul li {
-	border: 2.5px solid rgba(196, 196, 196, 0.7);
-	border-radius: 2px;
-	display: inline-block;
-	font-size: 12px;
-	margin: 0 7px 7px 0;
-	padding: .75rem;
-}
 
 /*Start contact*/
 .contact{
@@ -383,7 +386,6 @@ textarea{
     border: none;
     outline-color: #83649C;
 }
-
 
 input[type="submit"]{
 	width: 40%;
