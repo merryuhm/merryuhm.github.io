@@ -25,6 +25,7 @@ body{
     font-family: 'Baloo Tamma 2','Cairo', sans-serif;
 	font-size: 1.6rem;
 	-webkit-font-smoothing: antialiased;
+	background-color: #FBF8FF;
 }
 
 a{
