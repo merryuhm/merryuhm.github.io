@@ -191,7 +191,7 @@ section{
 	margin: 2rem 0rem 0rem;
 }
 
-.knowledge{
+.project{
     display: flex;
     flex-direction: column;
 	align-items: center;
@@ -201,13 +201,13 @@ section{
 	border-radius: 1.25rem;
 }
 
-.knowledge h1{
+.project h1{
 	font-family: 'Cairo', sans-serif;
 	font-weight: 600;
 	margin: 2rem -2px 2rem 0;
 }
 
-.knowledge a{
+.project a{
 	color: #83649C;
 }
 
@@ -235,54 +235,14 @@ section{
 	background-color: #cdc1d7;
 }
 
-.gameImg{
+/* Other Projects */
+/* skill tags - GENERAL https://codepen.io/FlorinPop17/pen/EJKgKB*/
+.projImg{
 	max-width: 95%;
 }
 
-/* Websites */
-.websites{
-	background-color: #cdc1d7;
-}
-.websiteImage {
-	max-width: 85%;
-}
-
-.scim, .stg{
-margin: 3rem 0 3rem;
-}
-
-.scim{
-	margin-top: 5rem;
-}
-
-/* Portfolio */
-.portfolio-item{
-	display: flex;
-	align-items: center;
-	margin-bottom: 5rem;
-	background-color: #9087a1;
-	border-radius: 2rem;
-	height: 50vh;
-}
-
-.portfolio-item:last-child{
-	margin-bottom: 0;
-}
-
-.portfolio-side{
-	flex: 1;
-}
-
-.portfolio-img{
-	width: 100%;
-	height: 100%;
-	padding: 2rem 6rem 2rem 2rem;
-}
-
-/* skill tags - GENERAL https://codepen.io/FlorinPop17/pen/EJKgKB*/
 .skill-tags {
-	/* flex: 3; */
-	color: #fff;
+	flex: 3;
 	text-align: left;
 	padding-top: 2rem;
 }
@@ -301,66 +261,6 @@ margin: 3rem 0 3rem;
 	margin: 0 7px 7px 0;
 	padding: .35rem;
 }
-
-.portfolio-description{
-	flex: 1;
-	margin: 1.25rem 5rem;
-}
-
-.portfolio-description h3 {
-	font-family: 'Cairo', sans-serif;
-	font-size: 2.25rem;
-	font-weight: 600;
-	letter-spacing: .20rem;
-}
-
-.portfolio-description h6 {
-	font-size: 1rem;
-    font-family: 'Noto Sans JP', sans-serif;
-    font-weight: 400;
-	text-transform: uppercase;
-	margin: .5rem 0 2rem;
-}
-
-.portfolio-description p {
-	line-height: 2.5rem;
-	font-size: 1.7rem;
-}
-
-.portfolio-description button{
-	display: inline-block;
-	margin: 2.5rem 3rem 0 0;
-}
-
-button.ghost {
-	font-size: 1.5rem;
-	background-color: transparent;
-	padding: 10px 25px;
-	cursor: pointer;
-	border: .25rem solid #544263;
-}
-
-button.primary {
-	font-size: 1.5rem;
-	background-color: #544263;
-	border: 1px solid #544263;
-	border-radius: 3px;
-	color: #dfdfdf;
-    padding: 10px 25px;
-    cursor: pointer;
-}
-
-button.ghost:hover {
-	background-color: #cdc1d7;
-}
-
-button.primary:hover {
-	background-color: #cdc1d7;
-	border: 1px solid #cdc1d7;
-	color: #231E39;
-}
-
-
 
 /*Start contact*/
 .contact{
@@ -590,60 +490,6 @@ footer{
         font-size: 4rem;
 	}
 
-	.portfolio-item{
-		display: flex;
-		flex-direction: column;
-		height: auto;
-	}
-	
-	.portfolio-description h3{
-		margin-top: 5rem;
-	}
-
-	.portfolio-img{
-		display: flex;
-		justify-content: center;
-		width: 100%;
-	}
-	
-
-
-	/* skill tags - GENERAL https://codepen.io/FlorinPop17/pen/EJKgKB*/
-	.skill-tags {
-		/* background-color: #ffffff; */
-		color: rgba(0, 0, 0, 0.65);
-		text-align: left;
-		margin: 1rem 2rem 5rem;
-	}
-	
-	
-	.skill-tags ul {
-		list-style-type: none;
-		margin: 0;
-		padding: 0;
-	}
-	
-	.skill-tags ul li {
-		border: 1px solid rgba(0, 0, 0, 0.25);
-		border-radius: 2px;
-		display: inline-block;
-		font-size: 12px;
-		margin: 0 7px 7px 0;
-		padding: 7px;
-	}
-
-
-    .timeline ul{
-        margin: 0 0 0 auto;
-	    }
-
-    .timeline .date:before{
-        left: -22rem;
-    }
-
-    .timeline .date:after{
-        left: -9rem;
-    }
 }
 
 /*End media queries*/
