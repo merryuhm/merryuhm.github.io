@@ -363,22 +363,6 @@ footer{
     .about-details li{
         margin: 0 2rem;
     }
-
-	.portfolio-item{
-		display: flex;
-		flex-direction: column;
-		height: auto;
-	}
-	
-	.portfolio-description h3{
-		margin-top: 5rem;
-	}
-
-	.portfolio-img{
-		display: flex;
-		justify-content: center;
-		width: 85%;
-	}
 	
 	.skill-tags {
 		/* background-color: #ffffff; */
@@ -462,18 +446,6 @@ footer{
 		font-size: 3rem;
 		margin: auto;
 	}
-	
-	.mob-about-details{
-		margin: 0 1.5rem 0;
-		line-height: 3rem;
-	}
-
-	.about .container{
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-	}
 
 	.header-contact{
 		display: none;
@@ -490,6 +462,12 @@ footer{
 
     .icon-container i{
         font-size: 4rem;
+	}
+
+	.projImg{
+		max-width: 50%;
+		max-height: 50%;
+		height:fit-content;
 	}
 
 }
