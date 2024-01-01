@@ -403,7 +403,7 @@ footer{
 
 	.svg-banner{
 		background-color: #3F3D56;
-		height: 75vh;
+		height: calc(100vh - constant(safe-area-inset-top));		
 		z-index: 5;
 	}
 	
@@ -465,8 +465,8 @@ footer{
 	}
 
 	.projImg{
-		max-width: 7rem;
-		max-height: 7rem;
+		max-width: 20rem;
+		max-height: 20rem;
 		height:fit-content;
 	}
 
