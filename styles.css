@@ -243,6 +243,10 @@ section{
 	height:fit-content;
 }
 
+.projImg:hover{
+	transform: scale(2);
+}
+
 .skill-tags {
 	flex: 3;
 	text-align: left;
