@@ -16,6 +16,16 @@
 }
 
 /* Global Styles */
+:root {
+	/* Color Key */
+	--nav: #4E7B9D;
+	--h1: #3B505D;
+	--text: #4D4D4D;
+	--highlight: #FEAD2A;
+	--main: #93BCDA;
+	--footer: #58758C;
+  }
+  
 html{
     font-size: 10px; 
     /* makes math easier when working with rem units */
