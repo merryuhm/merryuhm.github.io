@@ -25,8 +25,10 @@
 	--main: #93BCDA;
 	--footer: #58758C;
 	--accent: #FFB6B6;
-	--background: #FCFCFC;
+	--background: #F4FAFF;
+	--body: #FCFCFC;
 	--hover: #A9CFEA;
+	
   }
   
 html{
@@ -211,7 +213,7 @@ nav{
     align-items: center;
     gap: 1em;
     padding: 1.2em;
-    background: var(--background);
+    background: var(--body);
     border: 1px solid #e6e6e6;
     border-radius: 2px;
 }
@@ -262,7 +264,7 @@ nav{
     grid-template-columns: 1fr 1fr;
     align-items: stretch;
     gap: 2rem;
-    background: var(--background);
+    background: var(--body);
     border: 1px solid #e6e6e6;
     border-radius: 4px;
     overflow: hidden;
@@ -365,6 +367,10 @@ nav{
     margin: auto;
     transform: rotate(-45deg);
 }
+
+
+/* case studies */
+
 
 /* Games */
 .games{
