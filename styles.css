@@ -27,7 +27,7 @@
 	--accent: #FFB6B6;
 	--background: #F4FAFF;
 	--body: #FCFCFC;
-	--hover: #A9CFEA;
+	--hover: #c9e3f5;
 	
   }
   
@@ -130,7 +130,7 @@ nav{
 .logo{
     font-family: 'Zeyada', cursive;
     color: var(--background);
-    font-size: 3rem;
+    font-size: 4rem;
     padding: 0 1rem;
     text-transform: lowercase;
     cursor: pointer;
