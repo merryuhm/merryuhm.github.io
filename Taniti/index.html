@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taniti Island - Your Perfect Family Vacation</title>
+    
+    <!-- React and ReactDOM from CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    
+    <!-- Babel Standalone for JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background-color: #f9fafb;
+        }
+
+        h1 { font-size: 2.25rem; font-weight: 700; margin-bottom: 0.5rem; }
+        h2 { font-size: 1.875rem; font-weight: 600; margin-bottom: 1rem; }
+        h3 { font-size: 1.25rem; font-weight: 600; }
+        h4 { font-size: 1.125rem; font-weight: 600; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            border-bottom: 1px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 4rem;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: #1f2937;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .nav-brand svg {
+            color: #0d9488;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 0.25rem;
+        }
+
+        .nav-link {
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            text-decoration: none;
+            color: #4b5563;
+            transition: all 0.2s;
+        }
+
+        .nav-link:hover {
+            background-color: #f3f4f6;
+        }
+
+        .nav-link.active {
+            background-color: #0d9488;
+            color: white;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        /* Cards */
+        .card {
+            background: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background-color: #0d9488;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #0f766e;
+        }
+
+        .btn-outline {
+            background-color: white;
+            color: #4b5563;
+            border: 1px solid #d1d5db;
+        }
+
+        .btn-outline:hover {
+            background-color: #f9fafb;
+        }
+
+        .btn-lg {
+            padding: 0.75rem 2rem;
+            font-size: 1.125rem;
+        }
+
+        /* Hero */
+        .hero {
+            height: 500px;
+            background: linear-gradient(135deg, #14b8a6 0%, #3b82f6 50%, #06b6d4 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: white;
+            padding: 0 1rem;
+        }
+
+        .hero h1 {
+            font-size: 3.75rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        /* Grid */
+        .grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+        .grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+        .grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+        /* Forms */
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            font-size: 0.875rem;
+        }
+
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 0.5rem 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+        }
+
+        .form-input:focus, .form-textarea:focus {
+            outline: none;
+            border-color: #0d9488;
+            box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1);
+        }
+
+        /* Badge */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            background-color: #f3f4f6;
+            color: #4b5563;
+            border: 1px solid #e5e7eb;
+        }
+
+        .badge-secondary {
+            background-color: #e5e7eb;
+        }
+
+        /* Alert */
+        .alert {
+            padding: 1rem;
+            border-radius: 0.375rem;
+            margin-bottom: 1rem;
+        }
+
+        .alert-info {
+            background-color: #dbeafe;
+            border: 1px solid #93c5fd;
+            color: #1e40af;
+        }
+
+        .alert-warning {
+            background-color: #fef3c7;
+            border: 1px solid #fcd34d;
+            color: #92400e;
+        }
+
+        /* Icon placeholder */
+        .icon-placeholder {
+            width: 3rem;
+            height: 3rem;
+            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Accordion */
+        .accordion-item {
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .accordion-trigger {
+            width: 100%;
+            padding: 1rem;
+            background: none;
+            border: none;
+            text-align: left;
+            cursor: pointer;
+            font-size: 1.125rem;
+            font-weight: 500;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .accordion-trigger:hover {
+            background-color: #f9fafb;
+        }
+
+        .accordion-content {
+            padding: 1rem;
+            display: none;
+        }
+
+        .accordion-content.open {
+            display: block;
+        }
+
+        /* Checkbox */
+        .checkbox-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            border-radius: 0.375rem;
+            cursor: pointer;
+        }
+
+        .checkbox-wrapper:hover {
+            background-color: #f9fafb;
+        }
+
+        .checkbox {
+            width: 1rem;
+            height: 1rem;
+            cursor: pointer;
+        }
+
+        /* Utilities */
+        .text-center { text-align: center; }
+        .mb-2 { margin-bottom: 0.5rem; }
+        .mb-3 { margin-bottom: 0.75rem; }
+        .mb-4 { margin-bottom: 1rem; }
+        .mb-6 { margin-bottom: 1.5rem; }
+        .mb-8 { margin-bottom: 2rem; }
+        .mt-2 { margin-top: 0.5rem; }
+        .mt-4 { margin-top: 1rem; }
+        .py-6 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+        .py-8 { padding-top: 2rem; padding-bottom: 2rem; }
+        .py-12 { padding-top: 3rem; padding-bottom: 3rem; }
+        .px-4 { padding-left: 1rem; padding-right: 1rem; }
+        .p-4 { padding: 1rem; }
+        .p-6 { padding: 1.5rem; }
+        .gap-2 { gap: 0.5rem; }
+        .gap-4 { gap: 1rem; }
+        .gap-6 { gap: 1.5rem; }
+        .flex { display: flex; }
+        .items-center { align-items: center; }
+        .justify-between { justify-content: space-between; }
+        .w-full { width: 100%; }
+        .bg-gray-50 { background-color: #f9fafb; }
+        .bg-teal-50 { background-color: #f0fdfa; }
+        .bg-yellow-50 { background-color: #fefce8; }
+        .text-gray-600 { color: #4b5563; }
+        .text-gray-700 { color: #374151; }
+        .text-gray-800 { color: #1f2937; }
+        .rounded-lg { border-radius: 0.5rem; }
+        .space-y-2 > * + * { margin-top: 0.5rem; }
+        .space-y-3 > * + * { margin-top: 0.75rem; }
+        .space-y-4 > * + * { margin-top: 1rem; }
+        .space-y-6 > * + * { margin-top: 1.5rem; }
+        .text-sm { font-size: 0.875rem; }
+        .text-lg { font-size: 1.125rem; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1.125rem; }
+            h1 { font-size: 1.875rem; }
+            h2 { font-size: 1.5rem; }
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .grid-cols-2, .grid-cols-3, .grid-cols-4 {
+                grid-template-columns: 1fr;
+            }
+            .md-grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (min-width: 769px) {
+            .md-grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+            .md-grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+            .md-grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+            .lg-grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+        }
+
+        @media (min-width: 1024px) {
+            .lg-col-span-2 { grid-column: span 2; }
+            .lg-col-span-3 { grid-column: span 3; }
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        // Router
+        function useRouter() {
+            const [currentPath, setCurrentPath] = useState(window.location.hash.slice(1) || '/');
+
+            useEffect(() => {
+                const handleHashChange = () => {
+                    setCurrentPath(window.location.hash.slice(1) || '/');
+                };
+                window.addEventListener('hashchange', handleHashChange);
+                return () => window.removeEventListener('hashchange', handleHashChange);
+            }, []);
+
+            const navigate = (path) => {
+                window.location.hash = path;
+            };
+
+            return { currentPath, navigate };
+        }
+
+        // Navigation Component
+        function Navigation({ currentPath }) {
+            const navLinks = [
+                { path: '/', label: 'Home' },
+                { path: '/activities', label: 'Activities' },
+                { path: '/accommodations', label: 'Accommodations' },
+                { path: '/dining', label: 'Dining' },
+                { path: '/transportation', label: 'Transportation' },
+                { path: '/faq', label: 'FAQ' },
+                { path: '/contact', label: 'Contact' },
+            ];
+
+            return (
+                <nav>
+                    <div className="nav-container">
+                        <a href="#/" className="nav-brand">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                <path d="M12 3v18M5 8h14M5 16h14"/>
+                            </svg>
+                            <span>Taniti Island</span>
+                        </a>
+                        <div className="nav-links">
+                            {navLinks.map(link => (
+                                <a
+                                    key={link.path}
+                                    href={`#${link.path}`}
+                                    className={`nav-link ${currentPath === link.path ? 'active' : ''}`}
+                                >
+                                    {link.label}
+                                </a>
+                            ))}
+                        </div>
+                    </div>
+                </nav>
+            );
+        }
+
+        // Homepage Component
+        function Homepage() {
+            return (
+                <div>
+                    <div className="hero">
+                        <div className="hero-content">
+                            <h1>Discover Paradise on Taniti Island</h1>
+                            <p>Your Perfect Family Vacation Awaits</p>
+                            <a href="#/contact" className="btn btn-primary btn-lg">BOOK NOW</a>
+                        </div>
+                    </div>
+
+                    <section className="container py-12">
+                        <h2 className="text-center mb-8">Explore Taniti</h2>
+                        <div className="grid md-grid-cols-4 gap-6">
+                            <a href="#/activities" style={{textDecoration: 'none', color: 'inherit'}}>
+                                <div className="card text-center">
+                                    <div className="card-content">
+                                        <div className="icon-placeholder" style={{margin: '0 auto 1rem'}}>
+                                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#0d9488" strokeWidth="2">
+                                                <path d="M2 12c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12z"/>
+                                            </svg>
+                                        </div>
+                                        <p className="text-gray-700">Beaches</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#/activities" style={{textDecoration: 'none', color: 'inherit'}}>
+                                <div className="card text-center">
+                                    <div className="card-content">
+                                        <div className="icon-placeholder" style={{margin: '0 auto 1rem', background: 'linear-gradient(135deg, #d1fae5 0%, #86efac 100%)'}}>
+                                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2">
+                                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                                            </svg>
+                                        </div>
+                                        <p className="text-gray-700">Rainforest</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#/activities" style={{textDecoration: 'none', color: 'inherit'}}>
+                                <div className="card text-center">
+                                    <div className="card-content">
+                                        <div className="icon-placeholder" style={{margin: '0 auto 1rem', background: 'linear-gradient(135deg, #fed7aa 0%, #fdba74 100%)'}}>
+                                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#ea580c" strokeWidth="2">
+                                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                            </svg>
+                                        </div>
+                                        <p className="text-gray-700">Volcano</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#/contact" style={{textDecoration: 'none', color: 'inherit'}}>
+                                <div className="card text-center" style={{backgroundColor: '#0d9488', color: 'white'}}>
+                                    <div className="card-content">
+                                        <div className="icon-placeholder" style={{margin: '0 auto 1rem', background: 'rgba(255,255,255,0.2)'}}>
+                                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+                                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                                <line x1="16" y1="2" x2="16" y2="6"/>
+                                                <line x1="8" y1="2" x2="8" y2="6"/>
+                                                <line x1="3" y1="10" x2="21" y2="10"/>
+                                            </svg>
+                                        </div>
+                                        <p>Book Now</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </section>
+
+                    <section className="container py-12">
+                        <h2 className="text-center mb-8">Popular Activities</h2>
+                        <div className="grid md-grid-cols-3 gap-6">
+                            {['Snorkeling at Yellow Leaf Bay', 'Volcano Tours', 'Rainforest Hiking'].map(activity => (
+                                <div key={activity} className="card">
+                                    <div className="card-content">
+                                        <div style={{height: '160px', background: 'linear-gradient(135deg, #ccfbf1 0%, #99f6e4 100%)', borderRadius: '0.5rem', marginBottom: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#0d9488" strokeWidth="2">
+                                                <circle cx="12" cy="12" r="10"/>
+                                            </svg>
+                                        </div>
+                                        <h3 className="mb-2 text-gray-800">{activity}</h3>
+                                        <p className="text-gray-600 text-sm mb-4">
+                                            Experience the natural beauty and adventure that Taniti Island has to offer.
+                                        </p>
+                                        <a href="#/activities" className="btn btn-outline w-full">Learn More</a>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+
+                    <section className="container py-12 bg-gray-50">
+                        <h2 className="text-center mb-8">Where to Stay</h2>
+                        <div className="grid md-grid-cols-4 gap-6">
+                            {['4-Star Resort', 'Family Hotels', 'Bed & Breakfasts', 'Budget Hostel'].map(accommodation => (
+                                <div key={accommodation} className="card">
+                                    <div className="card-content">
+                                        <div style={{height: '128px', background: 'linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%)', borderRadius: '0.5rem', marginBottom: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#4b5563" strokeWidth="2">
+                                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                                            </svg>
+                                        </div>
+                                        <h3 className="mb-3 text-gray-800">{accommodation}</h3>
+                                        <a href="#/accommodations" className="btn btn-outline w-full">View Options</a>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+
+                    <section className="container py-12">
+                        <h2 className="text-center mb-8">Getting Around</h2>
+                        <div className="grid md-grid-cols-4 gap-4 mb-6">
+                            {['Public Buses', 'Taxis', 'Rental Cars', 'Bike Rentals'].map(transport => (
+                                <div key={transport} className="card text-center">
+                                    <div className="card-content">
+                                        <div style={{height: '64px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '0.5rem'}}>
+                                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0d9488" strokeWidth="2">
+                                                <circle cx="12" cy="12" r="10"/>
+                                            </svg>
+                                        </div>
+                                        <p className="text-sm text-gray-700">{transport}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                        <div className="text-center">
+                            <a href="#/transportation" className="btn btn-outline btn-lg">Transportation Details</a>
+                        </div>
+                    </section>
+                </div>
+            );
+        }
+
+        // Activities Page
+        function ActivitiesPage() {
+            const [selectedCategories, setSelectedCategories] = useState([]);
+            const [selectedLocations, setSelectedLocations] = useState([]);
+
+            const activities = [
+                { id: '1', title: 'Yellow Leaf Bay Beach', description: 'Beautiful sandy beach perfect for families', category: ['Family-Friendly', 'Relaxation'], location: 'Yellow Leaf Bay' },
+                { id: '2', title: 'Rainforest Hiking Trails', description: 'Explore lush tropical rainforest paths', category: ['Adventure', 'Family-Friendly'], location: 'Taniti City' },
+                { id: '3', title: 'Volcano Tours', description: 'Visit the active volcano with expert guides', category: ['Adventure', 'Cultural'], location: 'Taniti City' },
+                { id: '4', title: 'Snorkeling Adventures', description: 'Discover colorful marine life underwater', category: ['Adventure', 'Family-Friendly'], location: 'Yellow Leaf Bay' },
+                { id: '5', title: 'Zip-lining Through Forest', description: 'Thrilling canopy tour experience', category: ['Adventure'], location: 'Taniti City' },
+                { id: '6', title: 'Chartered Fishing Trips', description: 'Deep sea fishing expeditions', category: ['Adventure', 'Relaxation'], location: 'Merriton Landing' },
+                { id: '7', title: 'Taniti History Museum', description: 'Learn about island culture and history', category: ['Cultural', 'Family-Friendly'], location: 'Taniti City' },
+                { id: '8', title: 'Helicopter Island Tours', description: 'Aerial views of the entire island', category: ['Adventure'], location: 'Taniti City' },
+                { id: '9', title: 'Local Microbrewery Tour', description: 'Taste locally crafted beers', category: ['Cultural', 'Relaxation'], location: 'Taniti City' },
+                { id: '10', title: 'Dance Club Experience', description: 'Night entertainment and dancing', category: ['Relaxation'], location: 'Taniti City' },
+                { id: '11', title: 'Movie Theater', description: 'Latest films in air-conditioned comfort', category: ['Family-Friendly', 'Relaxation'], location: 'Taniti City' },
+                { id: '12', title: 'Arcade Gaming Center', description: 'Fun games for all ages', category: ['Family-Friendly'], location: 'Taniti City' },
+                { id: '13', title: 'Art Galleries Tour', description: 'Local and international artwork', category: ['Cultural', 'Relaxation'], location: 'Taniti City' },
+                { id: '14', title: 'Bowling Alley', description: 'Family bowling entertainment', category: ['Family-Friendly', 'Relaxation'], location: 'Taniti City' },
+                { id: '15', title: 'Golf Course (Coming Soon)', description: '9-hole course under development', category: ['Relaxation'], location: 'Merriton Landing' },
+            ];
+
+            const categories = ['Family-Friendly', 'Adventure', 'Cultural', 'Relaxation'];
+            const locations = ['Taniti City', 'Merriton Landing', 'Yellow Leaf Bay'];
+
+            const toggleCategory = (category) => {
+                setSelectedCategories(prev =>
+                    prev.includes(category) ? prev.filter(c => c !== category) : [...prev, category]
+                );
+            };
+
+            const toggleLocation = (location) => {
+                setSelectedLocations(prev =>
+                    prev.includes(location) ? prev.filter(l => l !== location) : [...prev, location]
+                );
+            };
+
+            const filteredActivities = activities.filter(activity => {
+                const categoryMatch = selectedCategories.length === 0 || 
+                    selectedCategories.some(cat => activity.category.includes(cat));
+                const locationMatch = selectedLocations.length === 0 || 
+                    selectedLocations.includes(activity.location);
+                return categoryMatch && locationMatch;
+            });
+
+            return (
+                <div className="bg-gray-50" style={{minHeight: '100vh'}}>
+                    <div className="container py-8">
+                        <div className="mb-8">
+                            <h1 className="text-gray-800 mb-2">Activities & Attractions</h1>
+                            <p className="text-gray-600">Discover adventures and experiences across Taniti Island</p>
+                        </div>
+
+                        <div className="grid lg-grid-cols-4 gap-6">
+                            <aside>
+                                <div className="card">
+                                    <div className="card-content">
+                                        <h2 className="text-lg mb-4 text-gray-800">Filters</h2>
+
+                                        <div className="mb-6">
+                                            <h3 className="text-sm text-gray-600 mb-3" style={{textTransform: 'uppercase', letterSpacing: '0.05em'}}>Category</h3>
+                                            <div className="space-y-2">
+                                                {categories.map(category => (
+                                                    <div key={category} className="checkbox-wrapper">
+                                                        <input
+                                                            type="checkbox"
+                                                            id={category}
+                                                            className="checkbox"
+                                                            checked={selectedCategories.includes(category)}
+                                                            onChange={() => toggleCategory(category)}
+                                                        />
+                                                        <label htmlFor={category} className="text-sm" style={{cursor: 'pointer', flex: 1}}>
+                                                            {category}
+                                                        </label>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <h3 className="text-sm text-gray-600 mb-3" style={{textTransform: 'uppercase', letterSpacing: '0.05em'}}>Location</h3>
+                                            <div className="space-y-2">
+                                                {locations.map(location => (
+                                                    <div key={location} className="checkbox-wrapper">
+                                                        <input
+                                                            type="checkbox"
+                                                            id={location}
+                                                            className="checkbox"
+                                                            checked={selectedLocations.includes(location)}
+                                                            onChange={() => toggleLocation(location)}
+                                                        />
+                                                        <label htmlFor={location} className="text-sm" style={{cursor: 'pointer', flex: 1}}>
+                                                            {location}
+                                                        </label>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </aside>
+
+                            <div className="lg-col-span-3">
+                                <div className="mb-4 text-gray-600">
+                                    <span>Showing {filteredActivities.length} activities</span>
+                                </div>
+
+                                <div className="grid md-grid-cols-3 gap-6">
+                                    {filteredActivities.map(activity => (
+                                        <div key={activity.id} className="card">
+                                            <div className="card-content">
+                                                <div style={{height: '160px', background: 'linear-gradient(135deg, #ccfbf1 0%, #99f6e4 100%)', borderRadius: '0.5rem', marginBottom: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                                                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#0d9488" strokeWidth="2">
+                                                        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                                    </svg>
+                                                </div>
+                                                <h3 className="mb-2 text-gray-800">{activity.title}</h3>
+                                                <p className="text-gray-600 text-sm mb-3">{activity.description}</p>
+                                                <div className="mb-4">
+                                                    <span className="badge text-xs">{activity.location}</span>
+                                                </div>
+                                                <button className="btn btn-outline w-full">Learn More</button>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        // Accommodations Page
+        function AccommodationsPage() {
+            const [selectedTypes, setSelectedTypes] = useState([]);
+            const [selectedPrices, setSelectedPrices] = useState([]);
+
+            const accommodations = [
+                { id: '1', name: 'Paradise Sands Resort', type: 'Resort', priceRange: 'Luxury', amenities: ['WiFi', 'Family-Friendly', 'Breakfast'], description: '4-star beachfront resort with all amenities' },
+                { id: '2', name: 'Taniti Bay Hotel', type: 'Hotel', priceRange: 'Mid', amenities: ['WiFi', 'Family-Friendly'], description: 'Family-friendly hotel near Taniti City' },
+                { id: '3', name: 'Ocean View Inn', type: 'Hotel', priceRange: 'Mid', amenities: ['WiFi', 'Breakfast'], description: 'Comfortable hotel with ocean views' },
+                { id: '4', name: 'Tropical Dreams Hotel', type: 'Hotel', priceRange: 'Mid', amenities: ['WiFi', 'Family-Friendly', 'Breakfast'], description: 'Great location for families' },
+                { id: '5', name: 'Island Breeze B&B', type: 'B&B', priceRange: 'Mid', amenities: ['WiFi', 'Breakfast'], description: 'Cozy bed & breakfast with local charm' },
+                { id: '6', name: 'Sunrise Guest House', type: 'B&B', priceRange: 'Budget', amenities: ['Breakfast'], description: 'Affordable B&B with friendly hosts' },
+                { id: '7', name: 'Volcano View B&B', type: 'B&B', priceRange: 'Mid', amenities: ['WiFi', 'Breakfast'], description: 'Scenic views of the volcano' },
+                { id: '8', name: 'Backpackers Lodge', type: 'Hostel', priceRange: 'Budget', amenities: ['WiFi'], description: 'Budget-friendly hostel for travelers' },
+            ];
+
+            const types = ['Hotel', 'Hostel', 'B&B', 'Resort'];
+            const priceRanges = ['Budget', 'Mid', 'Luxury'];
+
+            const toggleType = (type) => {
+                setSelectedTypes(prev =>
+                    prev.includes(type) ? prev.filter(t => t !== type) : [...prev, type]
+                );
+            };
+
+            const togglePrice = (price) => {
+                setSelectedPrices(prev =>
+                    prev.includes(price) ? prev.filter(p => p !== price) : [...prev, price]
+                );
+            };
+
+            const filteredAccommodations = accommodations.filter(acc => {
+                const typeMatch = selectedTypes.length === 0 || selectedTypes.includes(acc.type);
+                const priceMatch = selectedPrices.length === 0 || selectedPrices.includes(acc.priceRange);
+                return typeMatch && priceMatch;
+            });
+
+            return (
+                <div className="bg-gray-50" style={{minHeight: '100vh'}}>
+                    <div className="container py-8">
+                        <div className="mb-6">
+                            <h1 className="text-gray-800 mb-3">Accommodations</h1>
+                            <div className="alert alert-info">
+                                <p>INFO: All lodging regulated and inspected by Tanitian government</p>
+                            </div>
+                        </div>
+
+                        <div className="grid lg-grid-cols-4 gap-6">
+                            <aside>
+                                <div className="card">
+                                    <div className="card-content">
+                                        <h2 className="text-lg mb-4 text-gray-800">Filters</h2>
+
+                                        <div className="mb-6">
+                                            <h3 className="text-sm text-gray-600 mb-3" style={{textTransform: 'uppercase', letterSpacing: '0.05em'}}>Type</h3>
+                                            <div className="space-y-2">
+                                                {types.map(type => (
+                                                    <div key={type} className="checkbox-wrapper">
+                                                        <input
+                                                            type="checkbox"
+                                                            id={`type-${type}`}
+                                                            className="checkbox"
+                                                            checked={selectedTypes.includes(type)}
+                                                            onChange={() => toggleType(type)}
+                                                        />
+                                                        <label htmlFor={`type-${type}`} className="text-sm" style={{cursor: 'pointer', flex: 1}}>
+                                                            {type}
+                                                        </label>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <h3 className="text-sm text-gray-600 mb-3" style={{textTransform: 'uppercase', letterSpacing: '0.05em'}}>Price Range</h3>
+                                            <div className="space-y-2">
+                                                {priceRanges.map(price => (
+                                                    <div key={price} className="checkbox-wrapper">
+                                                        <input
+                                                            type="checkbox"
+                                                            id={`price-${price}`}
+                                                            className="checkbox"
+                                                            checked={selectedPrices.includes(price)}
+                                                            onChange={() => togglePrice(price)}
+                                                        />
+                                                        <label htmlFor={`price-${price}`} className="text-sm" style={{cursor: 'pointer', flex: 1}}>
+                                                            {price}
+                                                        </label>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </aside>
+
+                            <div className="lg-col-span-3">
+                                <div className="mb-4 text-gray-600">
+                                    <span>Showing {filteredAccommodations.length} accommodations</span>
+                                </div>
+
+                                <div className="space-y-6">
+                                    {filteredAccommodations.map(accommodation => (
+                                        <div key={accommodation.id} className="card">
+                                            <div className="card-content">
+                                                <div className="grid md-grid-cols-4 gap-6">
+                                                    <div style={{height: '192px', background: 'linear-gradient(135deg, #ccfbf1 0%, #99f6e4 100%)', borderRadius: '0.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                                                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#0d9488" strokeWidth="2">
+                                                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                                                        </svg>
+                                                    </div>
+                                                    <div className="md-col-span-3 space-y-3">
+                                                        <h3 className="text-2xl text-gray-800">{accommodation.name}</h3>
+                                                        <div className="flex gap-2">
+                                                            <span className="badge badge-secondary">{accommodation.type}</span>
+                                                            <span className="badge">{accommodation.priceRange}</span>
+                                                        </div>
+                                                        <p className="text-gray-600">{accommodation.description}</p>
+                                                        <div className="bg-gray-50 p-4 rounded-lg">
+                                                            <div className="text-sm mb-2 text-gray-600">Amenities:</div>
+                                                            <div className="flex gap-4">
+                                                                {accommodation.amenities.map(amenity => (
+                                                                    <span key={amenity} className="text-sm text-gray-700">{amenity}</span>
+                                                                ))}
+                                                            </div>
+                                                        </div>
+                                                        <button className="btn btn-primary">Book Now</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        // Dining Page
+        function DiningPage() {
+            const [selectedCuisines, setSelectedCuisines] = useState([]);
+            const [selectedLocations, setSelectedLocations] = useState([]);
+
+            const restaurants = [
+                { id: '1', name: 'Fresh Catch Grill', cuisine: 'Local', location: 'Taniti City', description: 'Traditional fish and rice dishes' },
+                { id: '2', name: 'Island Flavors', cuisine: 'Local', location: 'Yellow Leaf Bay', description: 'Authentic local cuisine with sea views' },
+                { id: '3', name: 'Taniti Seafood House', cuisine: 'Local', location: 'Merriton Landing', description: 'Fresh daily catch and local specialties' },
+                { id: '4', name: 'Ocean Breeze Restaurant', cuisine: 'Local', location: 'Taniti City', description: 'Family-style local dining' },
+                { id: '5', name: 'Palm Tree Eatery', cuisine: 'Local', location: 'Yellow Leaf Bay', description: 'Beachside local cuisine' },
+                { id: '6', name: 'American Diner', cuisine: 'American', location: 'Taniti City', description: 'Classic burgers, fries, and shakes' },
+                { id: '7', name: "Jake's Steakhouse", cuisine: 'American', location: 'Taniti City', description: 'Premium steaks and American fare' },
+                { id: '8', name: 'Island Grill & Bar', cuisine: 'American', location: 'Merriton Landing', description: 'Casual American dining' },
+                { id: '9', name: 'Golden Lotus', cuisine: 'Pan-Asian', location: 'Taniti City', description: 'Chinese, Thai, and Japanese fusion' },
+                { id: '10', name: 'Bamboo Garden', cuisine: 'Pan-Asian', location: 'Taniti City', description: 'Authentic Asian flavors and sushi' },
+            ];
+
+            const cuisines = ['Local', 'American', 'Pan-Asian'];
+            const locations = ['Taniti City', 'Merriton Landing', 'Yellow Leaf Bay'];
+
+            const toggleCuisine = (cuisine) => {
+                setSelectedCuisines(prev =>
+                    prev.includes(cuisine) ? prev.filter(c => c !== cuisine) : [...prev, cuisine]
+                );
+            };
+
+            const toggleLocation = (location) => {
+                setSelectedLocations(prev =>
+                    prev.includes(location) ? prev.filter(l => l !== location) : [...prev, location]
+                );
+            };
+
+            const filteredRestaurants = restaurants.filter(restaurant => {
+                const cuisineMatch = selectedCuisines.length === 0 || selectedCuisines.includes(restaurant.cuisine);
+                const locationMatch = selectedLocations.length === 0 || selectedLocations.includes(restaurant.location);
+                return cuisineMatch && locationMatch;
+            });
+
+            return (
+                <div className="bg-gray-50" style={{minHeight: '100vh'}}>
+                    <div className="container py-8">
+                        <div className="mb-6">
+                            <h1 className="text-gray-800 mb-3">Dining Options</h1>
+                            <div className="alert alert-warning">
+                                <p>NOTE: Alcohol service restricted between midnight and 9am</p>
+                            </div>
+                        </div>
+
+                        <div className="grid lg-grid-cols-4 gap-6">
+                            <aside>
+                                <div className="card">
+                                    <div className="card-content">
+                                        <h2 className="text-lg mb-4 text-gray-800">Filters</h2>
+
+                                        <div className="mb-6">
+                                            <h3 className="text-sm text-gray-600 mb-3" style={{textTransform: 'uppercase', letterSpacing: '0.05em'}}>Cuisine Type</h3>
+                                            <div className="space-y-2">
+                                                {cuisines.map(cuisine => (
+                                                    <div key={cuisine} className="checkbox-wrapper">
+                                                        <input
+                                                            type="checkbox"
+                                                            id={`cuisine-${cuisine}`}
+                                                            className="checkbox"
+                                                            checked={selectedCuisines.includes(cuisine)}
+                                                            onChange={() => toggleCuisine(cuisine)}
+                                                        />
+                                                        <label htmlFor={`cuisine-${cuisine}`} className="text-sm" style={{cursor: 'pointer', flex: 1}}>
+                                                            {cuisine}
+                                                        </label>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <h3 className="text-sm text-gray-600 mb-3" style={{textTransform: 'uppercase', letterSpacing: '0.05em'}}>Location</h3>
+                                            <div className="space-y-2">
+                                                {locations.map(location => (
+                                                    <div key={location} className="checkbox-wrapper">
+                                                        <input
+                                                            type="checkbox"
+                                                            id={`loc-${location}`}
+                                                            className="checkbox"
+                                                            checked={selectedLocations.includes(location)}
+                                                            onChange={() => toggleLocation(location)}
+                                                        />
+                                                        <label htmlFor={`loc-${location}`} className="text-sm" style={{cursor: 'pointer', flex: 1}}>
+                                                            {location}
+                                                        </label>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </aside>
+
+                            <div className="lg-col-span-3">
+                                <div className="mb-4 text-gray-600">
+                                    <span>Showing {filteredRestaurants.length} restaurants</span>
+                                </div>
+
+                                <div className="grid md-grid-cols-2 gap-6">
+                                    {filteredRestaurants.map(restaurant => (
+                                        <div key={restaurant.id} className="card">
+                                            <div className="card-content">
+                                                <div style={{height: '160px', background: 'linear-gradient(135deg, #fed7aa 0%, #fdba74 100%)', borderRadius: '0.5rem', marginBottom: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                                                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#ea580c" strokeWidth="2">
+                                                        <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2M7 2v20M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                                                    </svg>
+                                                </div>
+                                                <h3 className="text-xl mb-2 text-gray-800">{restaurant.name}</h3>
+                                                <div className="flex gap-2 mb-3">
+                                                    <span className="badge badge-secondary">{restaurant.cuisine}</span>
+                                                    <span className="badge">{restaurant.location}</span>
+                                                </div>
+                                                <p className="text-gray-600 mb-4">{restaurant.description}</p>
+                                                <div className="flex gap-2">
+                                                    <button className="btn btn-outline" style={{flex: 1}}>View Menu</button>
+                                                    <button className="btn btn-primary" style={{flex: 1}}>Reserve</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        // Transportation Page
+        function TransportationPage() {
+            return (
+                <div className="bg-gray-50" style={{minHeight: '100vh'}}>
+                    <div className="container py-8">
+                        <div className="mb-8">
+                            <h1 className="text-gray-800 mb-2">Transportation</h1>
+                            <p className="text-gray-600">Everything you need to know about getting to and around Taniti Island</p>
+                        </div>
+
+                        <section className="mb-8">
+                            <h2 className="mb-6 text-gray-800">Getting to Taniti</h2>
+                            <div className="grid md-grid-cols-2 gap-6">
+                                <div className="card">
+                                    <div className="card-header">
+                                        <h3 className="flex items-center gap-3">
+                                            <div className="icon-placeholder" style={{width: '3rem', height: '3rem'}}>
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0d9488" strokeWidth="2">
+                                                    <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+                                                </svg>
+                                            </div>
+                                            By Air
+                                        </h3>
+                                    </div>
+                                    <div className="card-content">
+                                        <p className="text-gray-600 mb-3">Small airport with expanding services</p>
+                                        <ul className="space-y-2 text-sm text-gray-700">
+                                            <li>- Daily flights from major cities</li>
+                                            <li>- International connections available</li>
+                                            <li>- Small jets and propeller planes</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div className="card">
+                                    <div className="card-header">
+                                        <h3 className="flex items-center gap-3">
+                                            <div className="icon-placeholder" style={{width: '3rem', height: '3rem', background: 'linear-gradient(135deg, #dbeafe 0%, #93c5fd 100%)'}}>
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563eb" strokeWidth="2">
+                                                    <path d="M2 21c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1 .6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/>
+                                                    <path d="M19.38 20A11.6 11.6 0 0 0 21 14l-9-4-9 4c0 2.9.94 5.34 2.81 7.76"/>
+                                                    <path d="M19 13V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6"/>
+                                                </svg>
+                                            </div>
+                                            By Sea
+                                        </h3>
+                                    </div>
+                                    <div className="card-content">
+                                        <p className="text-gray-600 mb-3">Cruise ship port at Merriton Landing</p>
+                                        <ul className="space-y-2 text-sm text-gray-700">
+                                            <li>- Regular cruise ship arrivals</li>
+                                            <li>- Day visit options available</li>
+                                            <li>- Deep water port facilities</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section className="mb-8">
+                            <h2 className="mb-6 text-gray-800">Island Map</h2>
+                            <div className="card">
+                                <div className="card-content" style={{padding: '2rem'}}>
+                                    <div style={{height: '256px', background: 'linear-gradient(135deg, #ccfbf1 0%, #99f6e4 100%)', borderRadius: '0.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                                        <div className="text-center text-gray-600">
+                                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#0d9488" strokeWidth="2" style={{margin: '0 auto 0.75rem'}}>
+                                                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                                                <circle cx="12" cy="10" r="3"/>
+                                            </svg>
+                                            <p className="text-lg">Interactive Map of Taniti Island</p>
+                                            <p className="text-sm mt-2">Showing: Taniti City • Merriton Landing • Yellow Leaf Bay • Airport</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section className="mb-8">
+                            <h2 className="mb-6 text-gray-800">Getting Around the Island</h2>
+                            <div className="grid md-grid-cols-3 gap-6">
+                                {[
+                                    {title: 'Public Buses', subtitle: 'Taniti City Routes', items: ['Hours: 5am - 11pm', 'Affordable fares', 'City routes only']},
+                                    {title: 'Private Buses', subtitle: 'Island-wide Service', items: ['Serves rest of island', 'Daily scheduled routes', 'Advance booking recommended']},
+                                    {title: 'Taxis', subtitle: 'On-Demand Service', items: ['Available island-wide', 'Call or hail service', 'Metered and reliable']},
+                                    {title: 'Rental Cars', subtitle: 'Near Airport', items: ['Multiple providers', 'Valid license required', 'Explore at your pace']},
+                                    {title: 'Bike Rentals', subtitle: 'Eco-Friendly Option', items: ['Available in cities', 'Helmet required by law', 'Great for short trips']},
+                                    {title: 'Walking', subtitle: 'Pedestrian-Friendly', items: ['Taniti City walkable', 'Merriton Landing area walkable', 'Enjoy the scenery']},
+                                ].map(transport => (
+                                    <div key={transport.title} className="card">
+                                        <div className="card-header">
+                                            <h3 className="flex items-center gap-3 text-lg">
+                                                <div className="icon-placeholder" style={{width: '2.5rem', height: '2.5rem'}}>
+                                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0d9488" strokeWidth="2">
+                                                        <circle cx="12" cy="12" r="10"/>
+                                                    </svg>
+                                                </div>
+                                                {transport.title}
+                                            </h3>
+                                        </div>
+                                        <div className="card-content">
+                                            <p className="text-sm text-gray-600 mb-3">{transport.subtitle}</p>
+                                            <ul className="space-y-1 text-sm text-gray-700">
+                                                {transport.items.map(item => (
+                                                    <li key={item}>- {item}</li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
+
+                        <section>
+                            <div className="alert alert-info">
+                                <h3 className="mb-2">Important Notes</h3>
+                                <ul className="space-y-1 text-sm">
+                                    <li>• Helmet required when riding bicycles (strictly enforced)</li>
+                                    <li>• Taniti City and Merriton Landing are pedestrian-friendly</li>
+                                    <li>• Book private buses in advance during peak season</li>
+                                    <li>• Rental car agencies accept international driver's licenses</li>
+                                </ul>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            );
+        }
+
+        // FAQ Page
+        function FAQPage() {
+            const [openItem, setOpenItem] = useState(null);
+
+            const toggleItem = (value) => {
+                setOpenItem(openItem === value ? null : value);
+            };
+
+            return (
+                <div className="bg-gray-50" style={{minHeight: '100vh'}}>
+                    <div className="container py-8" style={{maxWidth: '896px'}}>
+                        <div className="mb-8">
+                            <h1 className="text-gray-800 mb-2">FAQ & Practical Information</h1>
+                            <p className="text-gray-600">Everything you need to know for your visit to Taniti Island</p>
+                        </div>
+
+                        <div className="card">
+                            <div className="card-content">
+                                <div>
+                                    {[
+                                        {
+                                            value: 'power-currency',
+                                            title: 'Power & Currency',
+                                            content: (
+                                                <div className="space-y-4">
+                                                    <div className="bg-gray-50 p-4 rounded-lg">
+                                                        <h4 className="mb-3">Electrical Outlets</h4>
+                                                        <ul className="space-y-1 text-sm text-gray-700">
+                                                            <li>- 120 volts (US standard)</li>
+                                                            <li>- Same plugs as United States</li>
+                                                            <li>- No adapter needed for US visitors</li>
+                                                        </ul>
+                                                    </div>
+                                                    <div className="bg-gray-50 p-4 rounded-lg">
+                                                        <h4 className="mb-3">Currency Accepted</h4>
+                                                        <ul className="space-y-1 text-sm text-gray-700">
+                                                            <li>- US Dollars (primary)</li>
+                                                            <li>- Euros accepted</li>
+                                                            <li>- Japanese Yen accepted</li>
+                                                            <li>- Credit cards widely accepted</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            )
+                                        },
+                                        {
+                                            value: 'language',
+                                            title: 'Language',
+                                            content: (
+                                                <ul className="space-y-2 text-sm text-gray-700">
+                                                    <li className="bg-gray-50 p-3 rounded-lg">- Many younger Tanitians speak fluent English</li>
+                                                    <li className="bg-gray-50 p-3 rounded-lg">- English widely spoken in Taniti City</li>
+                                                    <li className="bg-gray-50 p-3 rounded-lg">- Less English in rural areas</li>
+                                                    <li className="bg-gray-50 p-3 rounded-lg">- Tourist areas have English-speaking staff</li>
+                                                </ul>
+                                            )
+                                        },
+                                        {
+                                            value: 'safety',
+                                            title: 'Safety & Crime',
+                                            content: (
+                                                <ul className="space-y-2 text-sm text-gray-700">
+                                                    <li className="bg-teal-50 p-3 rounded-lg">- Taniti enjoys a low crime rate</li>
+                                                    <li className="bg-gray-50 p-3 rounded-lg">- Petty theft and pickpocketing can occur</li>
+                                                    <li className="bg-gray-50 p-3 rounded-lg">- Watch belongings in crowded areas</li>
+                                                    <li className="bg-gray-50 p-3 rounded-lg">- Use hotel safes for valuables</li>
+                                                    <li className="bg-gray-50 p-3 rounded-lg">- Police available 24/7</li>
+                                                </ul>
+                                            )
+                                        },
+                                        {
+                                            value: 'medical',
+                                            title: 'Medical Facilities',
+                                            content: (
+                                                <ul className="space-y-2 text-sm text-gray-700">
+                                                    <li className="bg-gray-50 p-3 rounded-lg">- One hospital on the island</li>
+                                                    <li className="bg-gray-50 p-3 rounded-lg">- Located in Taniti City</li>
+                                                    <li className="bg-gray-50 p-3 rounded-lg">- Multilingual staff available</li>
+                                                    <li className="bg-gray-50 p-3 rounded-lg">- Modern equipment and facilities</li>
+                                                    <li className="bg-gray-50 p-3 rounded-lg">- Several pharmacies island-wide</li>
+                                                    <li className="bg-teal-50 p-3 rounded-lg">- Travel insurance recommended</li>
+                                                </ul>
+                                            )
+                                        },
+                                        {
+                                            value: 'holidays',
+                                            title: 'National Holidays',
+                                            content: (
+                                                <ul className="space-y-2 text-sm text-gray-700">
+                                                    <li className="bg-yellow-50 p-3 rounded-lg">- Many businesses close during national holidays</li>
+                                                    <li className="bg-gray-50 p-3 rounded-lg">- Check holiday calendar before visiting</li>
+                                                    <li className="bg-gray-50 p-3 rounded-lg">- Plan activities around holiday closures</li>
+                                                    <li className="bg-gray-50 p-3 rounded-lg">- Hotels and resorts remain open</li>
+                                                    <li className="bg-gray-50 p-3 rounded-lg">- Some restaurants may have limited hours</li>
+                                                </ul>
+                                            )
+                                        },
+                                        {
+                                            value: 'drinking',
+                                            title: 'Alcohol & Drinking Age',
+                                            content: (
+                                                <ul className="space-y-2 text-sm text-gray-700">
+                                                    <li className="bg-gray-50 p-3 rounded-lg">- Legal drinking age: 18 years</li>
+                                                    <li className="bg-yellow-50 p-3 rounded-lg">- Alcohol service restricted: midnight - 9am</li>
+                                                    <li className="bg-gray-50 p-3 rounded-lg">- Wide selection of local and imported drinks</li>
+                                                    <li className="bg-gray-50 p-3 rounded-lg">- Local microbrewery available</li>
+                                                    <li className="bg-gray-50 p-3 rounded-lg">- ID required for alcohol purchase</li>
+                                                </ul>
+                                            )
+                                        },
+                                        {
+                                            value: 'best-time',
+                                            title: 'Best Time to Visit',
+                                            content: (
+                                                <ul className="space-y-2 text-sm text-gray-700">
+                                                    <li className="bg-gray-50 p-3 rounded-lg">- Tropical climate year-round</li>
+                                                    <li className="bg-gray-50 p-3 rounded-lg">- Rainy season: November - February</li>
+                                                    <li className="bg-gray-50 p-3 rounded-lg">- Dry season: March - October</li>
+                                                    <li className="bg-gray-50 p-3 rounded-lg">- Average temperature: 75-85°F</li>
+                                                    <li className="bg-teal-50 p-3 rounded-lg">- Book 6+ months ahead for peak season</li>
+                                                </ul>
+                                            )
+                                        },
+                                        {
+                                            value: 'packing',
+                                            title: 'What to Pack',
+                                            content: (
+                                                <ul className="space-y-2 text-sm text-gray-700">
+                                                    <li className="bg-gray-50 p-3 rounded-lg">- Light, breathable clothing</li>
+                                                    <li className="bg-gray-50 p-3 rounded-lg">- Sandals and comfortable walking shoes</li>
+                                                    <li className="bg-gray-50 p-3 rounded-lg">- Sunscreen and insect repellent</li>
+                                                    <li className="bg-gray-50 p-3 rounded-lg">- Sunglasses and hat</li>
+                                                    <li className="bg-gray-50 p-3 rounded-lg">- Swimwear and beach gear</li>
+                                                    <li className="bg-gray-50 p-3 rounded-lg">- Light rain jacket</li>
+                                                </ul>
+                                            )
+                                        }
+                                    ].map((item) => (
+                                        <div key={item.value} className="accordion-item">
+                                            <button 
+                                                className="accordion-trigger"
+                                                onClick={() => toggleItem(item.value)}
+                                            >
+                                                <span>{item.title}</span>
+                                                <span>{openItem === item.value ? '−' : '+'}</span>
+                                            </button>
+                                            <div className={`accordion-content ${openItem === item.value ? 'open' : ''}`}>
+                                                {item.content}
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        // Contact Page
+        function ContactPage() {
+            return (
+                <div className="bg-gray-50" style={{minHeight: '100vh'}}>
+                    <div className="container py-8">
+                        <div className="mb-8">
+                            <h1 className="text-gray-800 mb-2">Contact & Booking</h1>
+                            <p className="text-gray-600">Get in touch with us or book your Taniti Island experience</p>
+                        </div>
+
+                        <div className="grid lg-grid-cols-3 gap-6">
+                            <div className="lg-col-span-2">
+                                <div className="card">
+                                    <div className="card-header">
+                                        <h2>Send Us a Message</h2>
+                                    </div>
+                                    <div className="card-content">
+                                        <form className="space-y-6">
+                                            <div className="form-group">
+                                                <label htmlFor="name" className="form-label">Name *</label>
+                                                <input type="text" id="name" className="form-input" placeholder="Your full name" />
+                                            </div>
+                                            <div className="form-group">
+                                                <label htmlFor="email" className="form-label">Email *</label>
+                                                <input type="email" id="email" className="form-input" placeholder="your.email@example.com" />
+                                            </div>
+                                            <div className="form-group">
+                                                <label htmlFor="phone" className="form-label">Phone</label>
+                                                <input type="tel" id="phone" className="form-input" placeholder="Your phone number" />
+                                            </div>
+                                            <div className="form-group">
+                                                <label htmlFor="message" className="form-label">Message *</label>
+                                                <textarea id="message" className="form-textarea" rows="6" placeholder="Tell us about your travel plans..."></textarea>
+                                            </div>
+                                            <button type="submit" className="btn btn-primary btn-lg w-full">SEND MESSAGE</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="space-y-6">
+                                <div className="card">
+                                    <div className="card-header">
+                                        <h3 className="text-lg">Quick Booking</h3>
+                                    </div>
+                                    <div className="card-content space-y-3">
+                                        <button className="btn btn-outline w-full" style={{justifyContent: 'flex-start'}}>Book Hotels</button>
+                                        <button className="btn btn-outline w-full" style={{justifyContent: 'flex-start'}}>Book Tours</button>
+                                        <button className="btn btn-outline w-full" style={{justifyContent: 'flex-start'}}>Book Activities</button>
+                                        <button className="btn btn-outline w-full" style={{justifyContent: 'flex-start'}}>Book Transportation</button>
+                                    </div>
+                                </div>
+
+                                <div className="card">
+                                    <div className="card-header">
+                                        <h3 className="text-lg">Emergency Contacts</h3>
+                                    </div>
+                                    <div className="card-content space-y-4">
+                                        <div style={{backgroundColor: '#fee2e2', padding: '1rem', borderRadius: '0.5rem'}}>
+                                            <div className="mb-2 text-sm">Hospital</div>
+                                            <div className="text-sm text-gray-700">911 or +1-XXX-XXX-XXXX</div>
+                                        </div>
+                                        <div style={{backgroundColor: '#dbeafe', padding: '1rem', borderRadius: '0.5rem'}}>
+                                            <div className="mb-2 text-sm">Police</div>
+                                            <div className="text-sm text-gray-700">911 or +1-XXX-XXX-XXXX</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="card">
+                                    <div className="card-header">
+                                        <h3 className="text-lg">Tourist Info Center</h3>
+                                    </div>
+                                    <div className="card-content space-y-3 text-sm">
+                                        <div className="bg-gray-50 p-3 rounded-lg">123 Main St, Taniti City</div>
+                                        <div className="bg-gray-50 p-3 rounded-lg">+1-XXX-XXX-XXXX</div>
+                                        <div className="bg-gray-50 p-3 rounded-lg">info@taniti-island.com</div>
+                                        <div className="bg-gray-50 p-3 rounded-lg">
+                                            <p className="mb-1">Hours:</p>
+                                            <p>Mon-Fri: 8am - 6pm</p>
+                                            <p>Sat-Sun: 9am - 5pm</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="card mt-6">
+                            <div className="card-content">
+                                <div className="space-y-2 text-sm text-gray-700">
+                                    <p>- For general inquiries, email us at info@taniti-island.com</p>
+                                    <p>- For booking assistance, call +1-XXX-XXX-XXXX</p>
+                                    <p>- Average response time: 24 hours</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        // Main App Component
+        function App() {
+            const { currentPath } = useRouter();
+
+            const renderPage = () => {
+                switch (currentPath) {
+                    case '/':
+                        return <Homepage />;
+                    case '/activities':
+                        return <ActivitiesPage />;
+                    case '/accommodations':
+                        return <AccommodationsPage />;
+                    case '/dining':
+                        return <DiningPage />;
+                    case '/transportation':
+                        return <TransportationPage />;
+                    case '/faq':
+                        return <FAQPage />;
+                    case '/contact':
+                        return <ContactPage />;
+                    default:
+                        return <Homepage />;
+                }
+            };
+
+            return (
+                <div>
+                    <Navigation currentPath={currentPath} />
+                    {renderPage()}
+                </div>
+            );
+        }
+
+        // Render the app
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>

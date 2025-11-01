@@ -293,6 +293,10 @@ nav{
     padding: 1.5rem;
 }
 
+.project-content a{
+    color:#4E7B9D;
+}
+
 /* Reversed layout: image on right */
 .project-item.reverse {
     grid-template-columns: 1fr 1fr;
